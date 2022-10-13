@@ -1,6 +1,6 @@
 {
   "name": "mindbody-api-v6",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Type safe library for interacting with Mindbody's Public API (v6) and Webhooks",
   "author": "Kyle Surowiec <kyle@splitpass.com>",
   "contributors": [
@@ -26,9 +26,7 @@
     }
   },
   "engines": {
-    "node": ">=12.4",
-    "yarn": "Please use pnpm",
-    "npm": "Please use pnpm"
+    "node": ">=12.4"
   },
   "scripts": {
     "build": "tsup",

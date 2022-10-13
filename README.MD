@@ -23,9 +23,9 @@ Node 12.4 or higher.
 Install the package with:
 
 ```sh
-npm install mindbody-api --save
+npm install mindbody-api-v6 --save
 # or
-yarn add mindbody-api
+yarn add mindbody-api-v6
 ```
 
 ## Usage
@@ -40,7 +40,7 @@ data returned if no token is provided.
 https://developers.mindbodyonline.com/
 
 ```ts
-import { Config } from 'mindbody-api';
+import { Config } from 'mindbody-api-v6';
 
 Config.setup({
   apiKey: '',
@@ -58,7 +58,7 @@ Config.setup({
 Endpoints are logically separated based on the categories listed [here](https://developers.mindbodyonline.com/PublicDocumentation/V6#endpoints).
 
 ```ts
-import { Class, Client, Staff } from 'mindbody-api';
+import { Class, Client, Staff } from 'mindbody-api-v6';
 
 const classes = await Class.getClassSchedules({
   siteID: '123',
@@ -87,7 +87,7 @@ const staff = await Staff.getStaff({
 All model definitions are exported under `MBType`. A full list of models can be found [here](https://developers.mindbodyonline.com/PublicDocumentation/V6#shared-resources). Additional models were added for easy access to complex types not listed in Mindbody's documentation
 
 ```ts
-import { MBType } from 'mindbody-api';
+import { MBType } from 'mindbody-api-v6';
 
 const staff: MBType.Staff = ...;
 const client: MBType.Client = ...;
