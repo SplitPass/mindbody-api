@@ -1,5 +1,5 @@
 {
-  "name": "@deadlift/mindbody-api",
+  "name": "mindbody-api-v6",
   "version": "0.1.0",
   "description": "Type safe library for interacting with Mindbody's Public API (v6) and Webhooks",
   "author": "Kyle Surowiec <kyle@splitpass.com>",
