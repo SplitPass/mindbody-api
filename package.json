@@ -1,5 +1,5 @@
 {
-  "name": "mindbody-api",
+  "name": "mindbody",
   "version": "0.1.0",
   "description": "Type safe library for interacting with Mindbody's Public API (v6) and Webhooks",
   "author": "Kyle Surowiec <kyle@splitpass.com>",
@@ -8,7 +8,13 @@
   ],
   "repository": "github:splitpass/mindbody-api",
   "license": "MIT",
-  "keywords": [],
+  "keywords": [
+    "mindbody",
+    "mindbody-api",
+    "booking",
+    "fitness",
+    "node"
+  ],
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
