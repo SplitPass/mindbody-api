@@ -1,8 +1,6 @@
-import type { DeepReadonly } from '$types';
-
-export type DirectDebitInfo = DeepReadonly<{
+export type DirectDebitInfo = {
   NameOnAccount: string;
   RoutingNumber: string;
   AccountNumber: string;
   AccountType: 'Checking' | 'Savings';
-}>;
+};

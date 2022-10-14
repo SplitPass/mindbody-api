@@ -1,11 +1,9 @@
-import type { DeepReadonly } from '$types';
-
-export type Permissions = DeepReadonly<{
+export type Permissions = {
   PermissionGroupName: string;
   IpRestricted: boolean;
   AllowedPermissions: Permission[];
   DeniedPermissions: Permission[];
-}>;
+};
 
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#permission-values

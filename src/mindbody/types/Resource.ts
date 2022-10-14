@@ -1,10 +1,8 @@
-import type { DeepReadonly } from '$types';
-
-export type Resources = DeepReadonly<{
+export type Resources = {
   Resources: Resource[];
-}>;
+};
 
-export type Resource = DeepReadonly<{
+export type Resource = {
   Id: number;
   Name: string;
-}>;
+};

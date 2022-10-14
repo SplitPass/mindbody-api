@@ -1,5 +1,3 @@
-import type { DeepReadonly } from '$types';
-
 export type CommissionType =
   | 'ItemStandardPercentageCommission'
   | 'ItemStandardFlatCommission'
@@ -18,7 +16,7 @@ export type CommissionType =
   | 'StaffPromotionalPercentageCommissionReturn'
   | 'StaffPromotionalFlatCommissionReturn';
 
-export type Commissions = DeepReadonly<{
+export type Commissions = {
   Commissions: {
     OriginatingSaleId?: number;
     StaffId: number;
@@ -32,4 +30,4 @@ export type Commissions = DeepReadonly<{
       CommissionEarnings: number;
     }[];
   }[];
-}>;
+};

@@ -3,7 +3,9 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "baseUrl": "./src",
+    "esModuleInterop": true,
     "importsNotUsedAsValues": "error",
+    "isolatedModules": true,
     "moduleResolution": "node",
     "paths": {
       "$http/*": ["http/*"],

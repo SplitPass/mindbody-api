@@ -1,11 +1,11 @@
 import type { Program, SessionType } from '$mindbody/types';
-import type { DeepReadonly, Nullable } from '$types';
+import type { Nullable } from '$types';
 
-export type ClassDescriptions = DeepReadonly<{
+export type ClassDescriptions = {
   ClassDescriptions: ClassDescription[];
-}>;
+};
 
-export type ClassDescription = DeepReadonly<{
+export type ClassDescription = {
   Active: boolean;
   Description: string;
   Id: number;
@@ -25,4 +25,4 @@ export type ClassDescription = DeepReadonly<{
   CategoryId: number;
   Subcategory: string;
   SubcategoryId: number;
-}>;
+};

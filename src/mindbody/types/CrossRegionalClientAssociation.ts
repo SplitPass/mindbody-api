@@ -1,11 +1,9 @@
-import type { DeepReadonly } from '$types';
-
-export type CrossRegionalClientAssociations = DeepReadonly<{
+export type CrossRegionalClientAssociations = {
   CrossRegionalClientAssociations: CrossRegionalClientAssociation[];
-}>;
+};
 
-export type CrossRegionalClientAssociation = DeepReadonly<{
+export type CrossRegionalClientAssociation = {
   SiteId: string;
   ClientId: string;
   UniqueId: string;
-}>;
+};

@@ -1,6 +1,4 @@
-import type { DeepReadonly } from '$types';
-
-export type ActivationCode = DeepReadonly<{
+export type ActivationCode = {
   ActivationCode: string;
   ActivationLink: string;
-}>;
+};

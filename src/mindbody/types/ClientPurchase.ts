@@ -1,10 +1,9 @@
 import type { Sale } from '$mindbody/types';
-import type { DeepReadonly } from '$types';
 
-export type ClientPurchases = DeepReadonly<{
+export type ClientPurchases = {
   Purchases: ClientPurchase[];
-}>;
+};
 
-export type ClientPurchase = DeepReadonly<{
+export type ClientPurchase = {
   Sale: Sale;
-}>;
+};

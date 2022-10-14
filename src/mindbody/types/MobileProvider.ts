@@ -1,12 +1,10 @@
-import type { DeepReadonly } from '$types';
-
-export type MobileProviders = DeepReadonly<{
+export type MobileProviders = {
   MobileProviders: MobileProvider[];
-}>;
+};
 
-export type MobileProvider = DeepReadonly<{
+export type MobileProvider = {
   Id: number;
   Active: boolean;
   ProviderName: string;
   ProviderAddress: string;
-}>;
+};

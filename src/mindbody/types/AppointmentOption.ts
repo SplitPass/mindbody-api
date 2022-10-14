@@ -1,12 +1,10 @@
-import type { DeepReadonly } from '$types';
-
-export type AppointmentOptions = DeepReadonly<{
+export type AppointmentOptions = {
   AppointmentOptions: AppointmentOption[];
-}>;
+};
 
-export type AppointmentOption = DeepReadonly<{
+export type AppointmentOption = {
   DisplayName: string;
   Name: string;
   Value: string;
   Type: string;
-}>;
+};

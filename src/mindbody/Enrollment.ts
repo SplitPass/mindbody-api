@@ -4,7 +4,6 @@ import type {
   RequestArgsPost,
 } from '$http/types';
 import type { AddClientToEnrollment, Enrollments } from '$mindbody/types';
-import type { DeepReadonly } from '$types';
 
 import { MindbodyClient } from '$http/MindbodyClient';
 
@@ -52,7 +51,7 @@ export async function getEnrollments(
 // POST /enrollment/{endpoint}
 // ========================
 
-export type AddClientToEnrollmentPayload = DeepReadonly<{
+export type AddClientToEnrollmentPayload = {
   ClientId: string;
   ClassScheduleId: string;
   EnrollDateForward?: string;
@@ -61,7 +60,7 @@ export type AddClientToEnrollmentPayload = DeepReadonly<{
   Waitlist?: boolean;
   WaitlistEntryId?: boolean;
   Test?: boolean;
-}>;
+};
 
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#add-client-to-enrollment

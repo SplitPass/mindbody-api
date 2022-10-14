@@ -1,7 +1,6 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@splitpass/mindbody-api': ^0.0.2
   '@types/node': ^18.8.3
   '@typescript-eslint/eslint-plugin': ^5.39.0
   '@typescript-eslint/parser': ^5.39.0
@@ -15,7 +14,6 @@ specifiers:
   typescript: ^4.8.4
 
 dependencies:
-  '@splitpass/mindbody-api': 0.0.2
   axios: 1.1.2
 
 devDependencies:
@@ -130,15 +128,6 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
     dev: true
-
-  /@splitpass/mindbody-api/0.0.2:
-    resolution: {integrity: sha512-DMXX+k9S0FGH0PdY0cgIVVwaUA3MTCGGbUkUsT/MCgAXueFa/d/lROT7ffE3nLWE3wSK2Ti6Shu6ECxPvba7Rg==}
-    engines: {node: '>=14.16', npm: Please use pnpm, yarn: Please use pnpm}
-    dependencies:
-      axios: 1.1.2
-    transitivePeerDependencies:
-      - debug
-    dev: false
 
   /@tsconfig/node10/1.0.9:
     resolution: {integrity: sha512-jNsYVVxU8v5g43Erja32laIDHXeoNvFEpX33OK4d6hljo3jDhCBDhx5dhCCTMWUojscpAagGiRkBKxpdl9fxqA==}

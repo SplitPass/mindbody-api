@@ -1,15 +1,15 @@
-import type { DeepReadonly, Nullable } from '$types';
+import type { Nullable } from '$types';
 
-export type GiftCardBalance = DeepReadonly<{
+export type GiftCardBalance = {
   BarcodeId: string;
   RemainingBalance: number;
-}>;
+};
 
-export type GiftCards = DeepReadonly<{
+export type GiftCards = {
   GiftCards: GiftCard[];
-}>;
+};
 
-export type GiftCard = DeepReadonly<{
+export type GiftCard = {
   Id: number;
   LocationIds: number[];
   Description: string;
@@ -26,4 +26,4 @@ export type GiftCard = DeepReadonly<{
     LayoutName: string;
     LayoutUrl: string;
   }[];
-}>;
+};

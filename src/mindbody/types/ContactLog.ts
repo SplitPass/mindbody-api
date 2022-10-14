@@ -1,13 +1,11 @@
-import type { DeepReadonly } from '$types';
-
-export type ContactLogs = DeepReadonly<{
+export type ContactLogs = {
   ContactLogTypes: ContactLog[];
-}>;
+};
 
-export type ContactLog = DeepReadonly<{
+export type ContactLog = {
   Id: number;
   Name: string;
   SubTypes: {
     Id: number;
   };
-}>;
+};

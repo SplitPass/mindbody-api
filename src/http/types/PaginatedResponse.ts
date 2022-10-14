@@ -1,15 +1,13 @@
 import type { ErrorResponse } from '$http/types/ErrorResponse';
-import type { DeepReadonly } from '$types';
 
-type BasePaginatedResponse = DeepReadonly<{
+type BasePaginatedResponse = {
   PaginationResponse: {
     RequestedLimit: number;
     RequestedOffset: number;
     PageSize: number;
     TotalResults: number;
   };
-}> &
-  ErrorResponse;
+} & ErrorResponse;
 
 export type MBGenericPaginatedResponse<TResponse extends object> = TResponse &
   BasePaginatedResponse;

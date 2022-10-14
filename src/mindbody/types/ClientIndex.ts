@@ -1,10 +1,8 @@
-import type { DeepReadonly } from '$types';
-
-export type ClientIndexes = DeepReadonly<{
+export type ClientIndexes = {
   ClientIndexes: ClientIndex[];
-}>;
+};
 
-export type ClientIndex = DeepReadonly<{
+export type ClientIndex = {
   Id: number;
   Name: string;
   RequiredBusinessMode: boolean;
@@ -15,4 +13,4 @@ export type ClientIndex = DeepReadonly<{
     Name: string;
   }[];
   Action: string;
-}>;
+};

@@ -1,10 +1,10 @@
-import type { DeepReadonly, Nullable } from '$types';
+import type { Nullable } from '$types';
 
-export type Locations = DeepReadonly<{
+export type Locations = {
   Locations: Location[];
-}>;
+};
 
-export type Location = DeepReadonly<{
+export type Location = {
   AdditionalImageURLs: Nullable<string[]>;
   Address: string;
   Address2: string;
@@ -35,4 +35,4 @@ export type Location = DeepReadonly<{
   TotalNumberOfRatings: number;
   AverageRating: number;
   TotalNumberOfDeals: number;
-}>;
+};

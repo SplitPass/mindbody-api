@@ -1,5 +1,3 @@
-import type { DeepReadonly } from '$types';
-
-export type ReferralTypes = DeepReadonly<{
+export type ReferralTypes = {
   ReferralTypes: string[];
-}>;
+};

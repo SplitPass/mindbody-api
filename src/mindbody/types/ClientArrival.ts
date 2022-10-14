@@ -1,8 +1,8 @@
-import type { DeepReadonly, Nullable } from '$types';
+import type { Nullable } from '$types';
 
-export type ClientArrival = DeepReadonly<{
+export type ClientArrival = {
   ArrivalProgramID: number;
   ArrivalProgramName: string;
   CanAccess: boolean;
   LocationsIDs: Nullable<number>[];
-}>;
+};

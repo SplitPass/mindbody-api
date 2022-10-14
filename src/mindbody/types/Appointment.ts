@@ -1,10 +1,10 @@
-import type { DeepReadonly, Nullable } from '$types';
+import type { Nullable } from '$types';
 
-export type Appointments = DeepReadonly<{
+export type Appointments = {
   Appointments: Appointment[];
-}>;
+};
 
-export type Appointment = DeepReadonly<{
+export type Appointment = {
   GenderPreference: 'None' | 'Female' | 'Male';
   Duration: number;
   ProviderId: string;
@@ -42,4 +42,4 @@ export type Appointment = DeepReadonly<{
     StaffId: number;
   }[];
   OnlineDescription: string;
-}>;
+};

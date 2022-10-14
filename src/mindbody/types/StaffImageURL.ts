@@ -1,6 +1,4 @@
-import type { DeepReadonly } from '$types';
-
-export type StaffImageURL = DeepReadonly<{
+export type StaffImageURL = {
   ImageURL: string;
   MobileImageURL: string;
-}>;
+};

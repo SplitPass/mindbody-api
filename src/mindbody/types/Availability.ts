@@ -1,11 +1,10 @@
 import type { Program, SessionType, Staff } from '$mindbody/types';
-import type { DeepReadonly } from '$types';
 
-export type Availabilities = DeepReadonly<{
+export type Availabilities = {
   Availabilities: Availability[];
-}>;
+};
 
-export type Availability = DeepReadonly<{
+export type Availability = {
   Id: number;
   Staff: Staff;
   SessionType: SessionType;
@@ -14,4 +13,4 @@ export type Availability = DeepReadonly<{
   EndDateTime: string;
   BookableEndDateTime: string;
   Location: Location;
-}>;
+};

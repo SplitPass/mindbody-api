@@ -1,24 +1,22 @@
 import type { ClientService } from '$mindbody/types';
-import type { DeepReadonly } from '$types';
 
-export type ActiveClientMemberships = DeepReadonly<{
+export type ActiveClientMemberships = {
   ClientMemberships: ClientMembership[];
-}>;
+};
 
-export type ClientsMemberships = DeepReadonly<{
+export type ClientsMemberships = {
   ClientMemberships: {
     ClientId: string;
     Memberships: ClientMembership[];
   }[];
-}>;
+};
 
-export type Memberships = DeepReadonly<{
+export type Memberships = {
   Memberships: ClientMembership[];
-}>;
+};
 
-export type ClientMembership = DeepReadonly<{
+export type ClientMembership = {
   RestrictedLocations: Location[];
   IconCode: string;
   MembershipId: number;
-}> &
-  ClientService;
+} & ClientService;

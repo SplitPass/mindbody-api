@@ -1,7 +1,5 @@
-import type { DeepReadonly } from '$types';
-
-export type SubCategory = DeepReadonly<{
+export type SubCategory = {
   Id: number;
   SubCategoryName: string;
   Active: boolean;
-}>;
+};

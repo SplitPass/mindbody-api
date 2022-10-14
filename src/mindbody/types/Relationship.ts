@@ -1,11 +1,9 @@
-import type { DeepReadonly } from '$types';
-
-export type Relationships = DeepReadonly<{
+export type Relationships = {
   Relationships: Relationship[];
-}>;
+};
 
-export type Relationship = DeepReadonly<{
+export type Relationship = {
   Id: number;
   RelationshipName1: string;
   RelationshipName2: string;
-}>;
+};

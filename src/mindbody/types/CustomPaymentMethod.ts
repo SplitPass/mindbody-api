@@ -1,10 +1,8 @@
-import type { DeepReadonly } from '$types';
-
-export type CustomPaymentMethods = DeepReadonly<{
+export type CustomPaymentMethods = {
   PaymentMethods: CustomPaymentMethod[];
-}>;
+};
 
-export type CustomPaymentMethod = DeepReadonly<{
+export type CustomPaymentMethod = {
   Id: number;
   Name: string;
-}>;
+};

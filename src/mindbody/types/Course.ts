@@ -1,11 +1,10 @@
 import type { Location, Program, Staff } from '$mindbody/types';
-import type { DeepReadonly } from '$types';
 
-export type Courses = DeepReadonly<{
+export type Courses = {
   Courses: Course[];
-}>;
+};
 
-export type Course = DeepReadonly<{
+export type Course = {
   Id: number;
   Name: string;
   Description: string;
@@ -16,4 +15,4 @@ export type Course = DeepReadonly<{
   ImageUrl: string;
   Organizer: Staff;
   Program: Program;
-}>;
+};

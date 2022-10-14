@@ -1,10 +1,8 @@
-import type { DeepReadonly } from '$types';
-
-export type Sites = DeepReadonly<{
+export type Sites = {
   Sites: Site[];
-}>;
+};
 
-export type Site = DeepReadonly<{
+export type Site = {
   AcceptsAmericanExpress: boolean;
   AcceptsDiscover: boolean;
   AcceptsMasterCard: boolean;
@@ -37,4 +35,4 @@ export type Site = DeepReadonly<{
   CurrencyIsoCode: string;
   CountryCode: string;
   TimeZone: string;
-}>;
+};

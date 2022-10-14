@@ -1,6 +1,6 @@
-import type { DeepReadonly, Nullable } from '$types';
+import type { Nullable } from '$types';
 
-export type UpdatedClientRewards = DeepReadonly<{
+export type UpdatedClientRewards = {
   Transaction: {
     Action: string;
     Points: number;
@@ -10,4 +10,4 @@ export type UpdatedClientRewards = DeepReadonly<{
     ExpirationDateTime: string;
   };
   Balance: number;
-}>;
+};

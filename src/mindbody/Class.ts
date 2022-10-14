@@ -15,7 +15,6 @@ import type {
   Visit,
   WaitlistEntries,
 } from '$mindbody/types';
-import type { DeepReadonly } from '$types';
 
 import { MindbodyClient } from '$http/MindbodyClient';
 
@@ -101,7 +100,7 @@ export type GetClassVisitsQueryParams = QueryParams<{
  */
 export async function getClassVisits(
   args: RequestArgsGet<GetClassVisitsQueryParams>,
-): Promise<DeepReadonly<{ Class: Class }>> {
+): Promise<{ Class: Class }> {
   return await MINDBODY.get('/class/classvisits', args);
 }
 
@@ -168,7 +167,7 @@ export async function getSemesters(
 // POST /class/{endpoint}
 // ========================
 
-export type AddClientToClassPayload = DeepReadonly<{
+export type AddClientToClassPayload = {
   ClientId: string;
   ClassId: string;
   RequirePayment: boolean;
@@ -179,7 +178,7 @@ export type AddClientToClassPayload = DeepReadonly<{
   CrossRegionalBooking?: boolean;
   CrossRegionalBookingClientServiceSiteId?: number;
   Test?: boolean;
-}>;
+};
 
 /**
  *
@@ -226,28 +225,28 @@ export type AddClientToClassPayload = DeepReadonly<{
  */
 export async function addClientToClass(
   args: RequestArgsPost<AddClientToClassPayload>,
-): Promise<DeepReadonly<{ Visit: Visit }>> {
+): Promise<{ Visit: Visit }> {
   return await MINDBODY.post('/class/addclienttoclass', args);
 }
 
-export type RemoveClientFromClassPayload = DeepReadonly<{
+export type RemoveClientFromClassPayload = {
   ClientId: string;
   ClassId: string;
   LateCancel?: boolean;
   SendEmail?: boolean;
   Test?: boolean;
-}>;
+};
 
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#remove-client-from-class
  */
 export async function removeClientFromClass(
   args: RequestArgsPost<RemoveClientFromClassPayload>,
-): Promise<DeepReadonly<{ Class: Class }>> {
+): Promise<{ Class: Class }> {
   return await MINDBODY.post('/class/removeclientfromclass', args);
 }
 
-export type RemoveClientsFromClassesPayload = DeepReadonly<{
+export type RemoveClientsFromClassesPayload = {
   Details: {
     ClientIds: string[];
     ClassId: string;
@@ -255,7 +254,7 @@ export type RemoveClientsFromClassesPayload = DeepReadonly<{
   LateCancel?: boolean;
   SendEmail?: boolean;
   Test?: boolean;
-}>;
+};
 
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#remove-clients-from-classes
@@ -266,9 +265,9 @@ export async function removeClientsFromClasses(
   return await MINDBODY.post('/class/removeclientsfromclasses', args);
 }
 
-export type RemoveFromWaitlistPayload = DeepReadonly<{
+export type RemoveFromWaitlistPayload = {
   WaitlistEntryIds: number[];
-}>;
+};
 
 /**
  * This endpoint does not return a response. If a call to this endpoint results
@@ -282,14 +281,14 @@ export async function removeFromWaitlist(
   await MINDBODY.post('/class/removefromwaitlist', args);
 }
 
-export type SubstituteClassTeacherPayload = DeepReadonly<{
+export type SubstituteClassTeacherPayload = {
   ClassId: number;
   StaffId: number;
   OverrideConflicts?: boolean;
   SendClientEmail?: boolean;
   SendOriginalTeacherEmail?: boolean;
   SendSubstituteTeacherEmail?: boolean;
-}>;
+};
 
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#substitute-class-teacher
@@ -300,12 +299,12 @@ export async function substituteClassTeacher(
   return await MINDBODY.post('/class/substituteclassteacher', args);
 }
 
-export type CancelSingleClassPayload = DeepReadonly<{
+export type CancelSingleClassPayload = {
   ClassID: number;
   HideCancel?: boolean;
   SendClientEmail?: boolean;
   SendStaffEmail?: boolean;
-}>;
+};
 
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#cancel-single-class

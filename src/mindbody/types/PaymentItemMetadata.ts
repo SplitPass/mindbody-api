@@ -1,6 +1,4 @@
-import type { DeepReadonly } from '$types';
-
-export type CreditCardPaymentItemMetadata = DeepReadonly<{
+export type CreditCardPaymentItemMetadata = {
   Amount: number;
   CreditCardNumber: string;
   ExpMonth: number;
@@ -12,62 +10,62 @@ export type CreditCardPaymentItemMetadata = DeepReadonly<{
   BillingState: string;
   BillingPostalCode: string;
   SaveInfo?: boolean;
-}>;
+};
 
-export type PackagePaymentItemMetadata = DeepReadonly<{
+export type PackagePaymentItemMetadata = {
   Id: number;
-}>;
+};
 
-export type TipPaymentItemMetadata = DeepReadonly<{
+export type TipPaymentItemMetadata = {
   StaffId: number;
   Amount: number;
-}>;
+};
 
-export type StoredCardPaymentItemMetadata = DeepReadonly<{
+export type StoredCardPaymentItemMetadata = {
   Amount: number;
   Last4: string;
-}>;
+};
 
-export type DirectDebitPaymentItemMetadata = DeepReadonly<{
+export type DirectDebitPaymentItemMetadata = {
   Amount: number;
-}>;
+};
 
-export type EncryptedTrackDataPaymentItemMetadata = DeepReadonly<{
-  Amount: number;
-  TrackData: string;
-}>;
-
-export type TrackDataPaymentItemMetadata = DeepReadonly<{
+export type EncryptedTrackDataPaymentItemMetadata = {
   Amount: number;
   TrackData: string;
-}>;
+};
 
-export type DebitPaymentItemMetadata = DeepReadonly<{
+export type TrackDataPaymentItemMetadata = {
   Amount: number;
   TrackData: string;
-}>;
+};
 
-export type CustomPaymentItemMetadata = DeepReadonly<{
+export type DebitPaymentItemMetadata = {
+  Amount: number;
+  TrackData: string;
+};
+
+export type CustomPaymentItemMetadata = {
   Id: number;
   Amount: number;
-}>;
+};
 
-export type CompPaymentItemMetadata = DeepReadonly<{
+export type CompPaymentItemMetadata = {
   Amount: number;
-}>;
+};
 
-export type CashPaymentItemMetadata = DeepReadonly<{
-  Amount: number;
-  Notes?: string;
-}>;
-
-export type CheckPaymentItemMetadata = DeepReadonly<{
+export type CashPaymentItemMetadata = {
   Amount: number;
   Notes?: string;
-}>;
+};
 
-export type GiftCardPaymentItemMetadata = DeepReadonly<{
+export type CheckPaymentItemMetadata = {
+  Amount: number;
+  Notes?: string;
+};
+
+export type GiftCardPaymentItemMetadata = {
   Amount: number;
   CardNumber: string;
   Notes?: string;
-}>;
+};

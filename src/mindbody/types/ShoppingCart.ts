@@ -1,7 +1,6 @@
 import type { Appointment, Class, Enrollment } from '$mindbody/types';
-import type { DeepReadonly } from '$types';
 
-export type ShoppingCart = DeepReadonly<{
+export type ShoppingCart = {
   ShoppingCart: {
     Id: string;
     CartItems: {
@@ -42,4 +41,4 @@ export type ShoppingCart = DeepReadonly<{
   Classes: Class[];
   Appointments: Appointment[];
   Enrollments: Enrollment[];
-}>;
+};

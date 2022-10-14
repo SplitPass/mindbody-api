@@ -1,7 +1,5 @@
-import type { DeepReadonly } from '$types';
-
-export type ReturnSale = DeepReadonly<{
+export type ReturnSale = {
   ReturnSaleID: number;
   TrainerID: number;
   Amount: number;
-}>;
+};

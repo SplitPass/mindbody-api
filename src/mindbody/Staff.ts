@@ -14,7 +14,6 @@ import type {
   StaffSessionTypes,
 } from '$mindbody/types';
 import type { MarkRequired } from 'ts-essentials';
-import type { DeepReadonly } from '$types';
 
 import { MindbodyClient } from '$http/MindbodyClient';
 
@@ -131,11 +130,11 @@ export type AddStaffPayload = MarkRequired<
  */
 export async function addStaff(
   args: RequestArgsPost<AddStaffPayload>,
-): Promise<DeepReadonly<{ Staff: Staff }>> {
+): Promise<{ Staff: Staff }> {
   return await MINDBODY.post('/staff/addstaff', args);
 }
 
-export type AddStaffAvailabilityPayload = DeepReadonly<{
+export type AddStaffAvailabilityPayload = {
   StaffId: number;
   IsAvailability: boolean;
   Description: string;
@@ -155,7 +154,7 @@ export type AddStaffAvailabilityPayload = DeepReadonly<{
   StartTime: string;
   EndTime: string;
   Status?: 'Masked' | 'Hidden' | 'Public';
-}>;
+};
 
 /**
  * Enables to add staff availability or unavailability for a given staff member.
@@ -171,7 +170,7 @@ export async function addStaffAvailability(
   await MINDBODY.post('/staff/staffavailability', args);
 }
 
-export type AssignStaffSessionTypePayload = DeepReadonly<{
+export type AssignStaffSessionTypePayload = {
   StaffId: number;
   SessionTypeId: number;
   Active: boolean;
@@ -180,7 +179,7 @@ export type AssignStaffSessionTypePayload = DeepReadonly<{
   FinishTime: number;
   PayRateType: 'Percent' | 'Flat' | 'No Pay';
   PayRateAmount: number;
-}>;
+};
 
 /**
  * Assigns a staff member to an appointment session type with staff specific
@@ -209,10 +208,10 @@ export async function updateStaff(
   return await MINDBODY.post('/staff/updatestaff', args);
 }
 
-export type UpdateStaffPermissionsPayload = DeepReadonly<{
+export type UpdateStaffPermissionsPayload = {
   StaffId: number;
   PermissionGroupName: string;
-}>;
+};
 /**
  * Assigns a permission group to a staff member. A staff user token must be included
  * with staff assigned the ManageStaffPayRates permission.

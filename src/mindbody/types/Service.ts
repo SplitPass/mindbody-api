@@ -1,10 +1,10 @@
-import type { DeepReadonly, Nullable } from '$types';
+import type { Nullable } from '$types';
 
-export type Services = DeepReadonly<{
+export type Services = {
   Services: Service[];
-}>;
+};
 
-export type Service = DeepReadonly<{
+export type Service = {
   Price: number;
   OnlinePrice: number;
   TaxIncluded: number;
@@ -29,4 +29,4 @@ export type Service = DeepReadonly<{
   IsThirdPartyDiscountPricing: boolean;
   Program: string;
   Discontinued: boolean;
-}>;
+};

@@ -1,10 +1,8 @@
-import type { DeepReadonly } from '$types';
-
-export type Programs = DeepReadonly<{
+export type Programs = {
   Programs: Program[];
-}>;
+};
 
-export type Program = DeepReadonly<{
+export type Program = {
   Id: number;
   Name: string;
   ScheduleType:
@@ -16,4 +14,4 @@ export type Program = DeepReadonly<{
     | 'Arrival';
   CancelOffset: number;
   ContentFormats: ('InPerson' | 'Livestream:Mindbody' | 'Livestream:Other')[];
-}>;
+};

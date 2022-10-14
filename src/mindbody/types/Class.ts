@@ -5,13 +5,13 @@ import type {
   Staff,
   Visit,
 } from '$mindbody/types';
-import type { DeepReadonly, Nullable } from '$types';
+import type { Nullable } from '$types';
 
-export type Classes = DeepReadonly<{
+export type Classes = {
   Classes: Class[];
-}>;
+};
 
-export type Class = DeepReadonly<{
+export type Class = {
   ClassScheduleId: number;
   Visits: Nullable<Visit[]>;
   Clients: Client[];
@@ -47,4 +47,4 @@ export type Class = DeepReadonly<{
   };
   BookingStatus: 'PaymentRequired' | 'BookAndPayLater' | 'Free';
   VirtualStreamLink: Nullable<string>;
-}>;
+};

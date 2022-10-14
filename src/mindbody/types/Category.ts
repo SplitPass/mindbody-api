@@ -1,11 +1,11 @@
 import type { SubCategory } from '$mindbody/types';
-import type { DeepReadonly, Nullable } from '$types';
+import type { Nullable } from '$types';
 
-export type Categories = DeepReadonly<{
+export type Categories = {
   Categories: Category[];
-}>;
+};
 
-export type Category = DeepReadonly<{
+export type Category = {
   Id: number;
   CategoryName: string;
   Description: Nullable<string>;
@@ -16,4 +16,4 @@ export type Category = DeepReadonly<{
   CreatedDateTimeUTC: string;
   ModifiedDateTimeUTC: string;
   SubCategories: SubCategory[];
-}>;
+};

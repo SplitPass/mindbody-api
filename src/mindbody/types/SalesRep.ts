@@ -1,13 +1,11 @@
-import type { DeepReadonly } from '$types';
-
-export type SalesReps = DeepReadonly<{
+export type SalesReps = {
   SalesReps: SalesRep[];
-}>;
+};
 
-export type SalesRep = DeepReadonly<{
+export type SalesRep = {
   Id: number;
   FirstName: string;
   LastName: string;
   SalesRepNumber: number;
   SalesRepNumbers: number[];
-}>;
+};

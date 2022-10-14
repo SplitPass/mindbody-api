@@ -1,10 +1,8 @@
-import type { DeepReadonly } from '$types';
-
-export type Semesters = DeepReadonly<{
+export type Semesters = {
   Semesters: Semester[];
-}>;
+};
 
-export type Semester = DeepReadonly<{
+export type Semester = {
   Id: number;
   Name: string;
   Description: string;
@@ -13,4 +11,4 @@ export type Semester = DeepReadonly<{
   MultiRegistrationDiscount: number;
   MultiRegistrationDeadline: string;
   Active: boolean;
-}>;
+};

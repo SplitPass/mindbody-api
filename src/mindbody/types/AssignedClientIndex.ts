@@ -1,6 +1,4 @@
-import type { DeepReadonly } from '$types';
-
-export type AssignedClientIndex = DeepReadonly<{
+export type AssignedClientIndex = {
   Id: number;
   ValueId: number;
-}>;
+};

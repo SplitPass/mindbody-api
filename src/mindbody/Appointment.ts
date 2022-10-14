@@ -13,7 +13,6 @@ import type {
   Availabilities,
   Staff,
 } from '$mindbody/types';
-import type { DeepReadonly } from '$types';
 
 import { MindbodyClient } from '$http/MindbodyClient';
 
@@ -46,7 +45,7 @@ export type GetActiveSessionTimesQueryParams = QueryParams<{
  */
 export async function getActiveSessionTimes(
   args: RequestArgsGetOptionalParams<GetActiveSessionTimesQueryParams>,
-): Promise<DeepReadonly<{ ActiveSessionTimes: string[] }>> {
+): Promise<{ ActiveSessionTimes: string[] }> {
   return await MINDBODY.get('/appointment/activesessiontimes', args);
 }
 
@@ -83,7 +82,7 @@ export type GetAppointmentAvailableDatesQueryParams = QueryParams<{
  */
 export async function getAppointmentAvailableDates(
   args: RequestArgsGet<GetAppointmentAvailableDatesQueryParams>,
-): Promise<DeepReadonly<{ AvailableDates: string[] }>> {
+): Promise<{ AvailableDates: string[] }> {
   return await MINDBODY.get('/appointment/availabledates', args);
 }
 
@@ -136,7 +135,7 @@ export type GetScheduleItemsQueryParams = QueryParams<{
  */
 export async function getScheduleItems(
   args: RequestArgsGetOptionalParams<GetScheduleItemsQueryParams>,
-): Promise<DeepReadonly<{ StaffMembers: Staff[] }>> {
+): Promise<{ StaffMembers: Staff[] }> {
   return await MINDBODY.get('/appointment/scheduleitems', args);
 }
 
@@ -164,7 +163,7 @@ export async function getStaffAppointments(
 // POST /appointment/{endpoint}
 // ========================
 
-export type AddAppointmentPayload = DeepReadonly<{
+export type AddAppointmentPayload = {
   ClientId: string;
   LocationId: number;
   SessionTypeId: number;
@@ -182,7 +181,7 @@ export type AddAppointmentPayload = DeepReadonly<{
   StaffRequested?: boolean;
   IsWaitlist?: boolean;
   Test?: boolean;
-}>;
+};
 
 /**
  * A user token is required for this endpoint. To book an appointment, you must
@@ -197,13 +196,13 @@ export async function addAppointment(
   return await MINDBODY.post('/appointment/addappointment', args);
 }
 
-export type AddAppointmentAddOnPayload = DeepReadonly<{
+export type AddAppointmentAddOnPayload = {
   AppointmentId: number;
   SessionTypeId: number;
   StaffId: number;
   ApplyPayment?: boolean;
   Test?: boolean;
-}>;
+};
 
 /**
  * This endpoint books an add-on on top of an existing, regular appointment.
@@ -214,16 +213,14 @@ export type AddAppointmentAddOnPayload = DeepReadonly<{
  */
 export async function addAppointmentAddOn(
   args: RequestArgsPost<AddAppointmentAddOnPayload>,
-): Promise<
-  DeepReadonly<{
-    AppointmentId: number;
-    AddOnAppointmentId: number;
-  }>
-> {
+): Promise<{
+  AppointmentId: number;
+  AddOnAppointmentId: number;
+}> {
   return await MINDBODY.post('/appointment/addappointmentaddon', args);
 }
 
-export type UpdateAppointmentPayload = DeepReadonly<{
+export type UpdateAppointmentPayload = {
   AppointmentId: number;
   Execute?: string;
   GenderPreference?: 'None' | 'Female' | 'Male';
@@ -236,7 +233,7 @@ export type UpdateAppointmentPayload = DeepReadonly<{
   StartDateTime?: string;
   EndDateTime?: string;
   Test?: boolean;
-}>;
+};
 
 /**
  * To update the information for a specific appointment, you must have a staff user
@@ -247,11 +244,11 @@ export type UpdateAppointmentPayload = DeepReadonly<{
  */
 export async function updateAppointment(
   args: RequestArgsPost<UpdateAppointmentPayload>,
-): Promise<DeepReadonly<{ Appointment: Appointment }>> {
+): Promise<{ Appointment: Appointment }> {
   return await MINDBODY.post('/appointment/updateappointment', args);
 }
 
-export type AddAvailabilitiesPayload = DeepReadonly<{
+export type AddAvailabilitiesPayload = {
   StaffIDs?: number[];
   IsUnavailable?: boolean;
   PublicDisplay?: 'Show' | 'Mask' | 'Hide';
@@ -270,7 +267,7 @@ export type AddAvailabilitiesPayload = DeepReadonly<{
   EndDateTime?: string;
   UnavailableDescription?: string;
   Test?: boolean;
-}>;
+};
 
 /**
  * Add availabilities and unavailabilities for a staff member.
@@ -279,7 +276,7 @@ export type AddAvailabilitiesPayload = DeepReadonly<{
  */
 export async function addAvailabilities(
   args: RequestArgsPost<AddAvailabilitiesPayload>,
-): Promise<DeepReadonly<{ StaffMembers: Staff[] }>> {
+): Promise<{ StaffMembers: Staff[] }> {
   return await MINDBODY.post('/appointment/availabilities', args);
 }
 
@@ -287,7 +284,7 @@ export async function addAvailabilities(
 // PUT /appointment/{endpoint}
 // ========================
 
-export type UpdateAvailabilitiesPayload = DeepReadonly<{
+export type UpdateAvailabilitiesPayload = {
   AvailabilityIds: number[];
   PublicDisplay?: 'Show' | 'Mask' | 'Hide';
   DaysOfWeek?: (
@@ -305,7 +302,7 @@ export type UpdateAvailabilitiesPayload = DeepReadonly<{
   EndDateTime?: string;
   UnavailableDescription?: string;
   Test?: boolean;
-}>;
+};
 
 /**
  * Add availabilities and unavailabilities for a staff member.
@@ -314,7 +311,7 @@ export type UpdateAvailabilitiesPayload = DeepReadonly<{
  */
 export async function updateAvailabilities(
   args: RequestArgsPost<UpdateAvailabilitiesPayload>,
-): Promise<DeepReadonly<{ StaffMembers: Staff[] }>> {
+): Promise<{ StaffMembers: Staff[] }> {
   return await MINDBODY.put('/appointment/availabilities', args);
 }
 
@@ -322,9 +319,9 @@ export async function updateAvailabilities(
 // DELETE /appointment/{endpoint}
 // ========================
 
-export type DeleteAppointmentAddOnQueryParams = DeepReadonly<{
+export type DeleteAppointmentAddOnQueryParams = {
   Id: number;
-}>;
+};
 
 /**
  * This endpoint can be used to early-cancel a booked appointment add-on.
@@ -339,10 +336,10 @@ export async function deleteAppointmentAddOn(
   await MINDBODY.delete('/appointment/deleteappointmentaddon', args);
 }
 
-export type DeleteAvailabilityQueryParams = DeepReadonly<{
+export type DeleteAvailabilityQueryParams = {
   AvailabilityId: number;
   Test?: boolean;
-}>;
+};
 
 /**
  * This endpoint deletes the availability or unavailability.
@@ -357,10 +354,10 @@ export async function deleteAvailability(
   await MINDBODY.delete('/appointment/availability', args);
 }
 
-export type RemoveFromAppointmentWaitlistQueryParams = DeepReadonly<{
+export type RemoveFromAppointmentWaitlistQueryParams = {
   AvailabilityId: number;
   Test?: boolean;
-}>;
+};
 
 /**
  * This endpoint does not return a response. If a call to this endpoint results

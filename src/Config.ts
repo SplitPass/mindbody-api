@@ -1,11 +1,9 @@
 /* eslint-disable @typescript-eslint/no-extraneous-class */
-import type { DeepReadonly } from '$types';
-
-export type MindbodyConfig = DeepReadonly<{
+export type MindbodyConfig = {
   apiKey?: string;
   username?: string;
   password?: string;
-}>;
+};
 
 let CONFIG = {} as MindbodyConfig;
 let FULL_CREDENTIALS_PROVIDED = false;

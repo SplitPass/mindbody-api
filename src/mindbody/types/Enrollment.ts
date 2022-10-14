@@ -6,13 +6,12 @@ import type {
   Location,
   Staff,
 } from '$mindbody/types';
-import type { DeepReadonly } from '$types';
 
-export type Enrollments = DeepReadonly<{
+export type Enrollments = {
   Enrollments: Enrollment[];
-}>;
+};
 
-export type Enrollment = DeepReadonly<{
+export type Enrollment = {
   Id: number;
   IsAvailable: boolean;
   SemesterId: number;
@@ -35,4 +34,4 @@ export type Enrollment = DeepReadonly<{
   EndTime: string;
   StartDate: string;
   EndDate: string;
-}>;
+};

@@ -1,11 +1,9 @@
-import type { DeepReadonly } from '$types';
-
-export type CustomClientFields = DeepReadonly<{
+export type CustomClientFields = {
   CustomClientFields: CustomClientField[];
-}>;
+};
 
-export type CustomClientField = DeepReadonly<{
+export type CustomClientField = {
   Id: string;
   DataType: string;
   Name: string;
-}>;
+};

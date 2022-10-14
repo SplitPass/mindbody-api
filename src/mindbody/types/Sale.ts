@@ -1,11 +1,11 @@
 import type { PurchasedItem, SalePayment } from '$mindbody/types';
-import type { DeepReadonly, Nullable } from '$types';
+import type { Nullable } from '$types';
 
-export type Sales = DeepReadonly<{
+export type Sales = {
   Sales: Sale[];
-}>;
+};
 
-export type Sale = DeepReadonly<{
+export type Sale = {
   Id: number;
   SaleDate: string;
   SaleTime: string;
@@ -17,4 +17,4 @@ export type Sale = DeepReadonly<{
   PurchasedItems: PurchasedItem[];
   LocationId: number;
   Payments: SalePayment[];
-}>;
+};

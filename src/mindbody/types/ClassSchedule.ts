@@ -6,13 +6,13 @@ import type {
   Location,
   Staff,
 } from '$mindbody/types';
-import type { DeepReadonly, Nullable } from '$types';
+import type { Nullable } from '$types';
 
-export type ClassSchedules = DeepReadonly<{
+export type ClassSchedules = {
   ClassSchedules: ClassSchedule[];
-}>;
+};
 
-export type ClassSchedule = DeepReadonly<{
+export type ClassSchedule = {
   Classes: Class[];
   Clients: Nullable<Client[]>;
   Course: Nullable<Course[]>;
@@ -35,4 +35,4 @@ export type ClassSchedule = DeepReadonly<{
   EndDate: string;
   Staff: Staff;
   Location: Location;
-}>;
+};

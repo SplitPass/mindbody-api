@@ -38,7 +38,6 @@ import type {
   TrackDataPaymentItemMetadata,
   Transactions,
 } from '$mindbody/types';
-import type { DeepReadonly } from '$types';
 
 import { MindbodyClient } from '$http/MindbodyClient';
 
@@ -238,7 +237,7 @@ export async function getTransactions(
 // POST /sale/{endpoint}
 // ========================
 
-export type CheckoutShoppingCartPayload = DeepReadonly<{
+export type CheckoutShoppingCartPayload = {
   ClientId: string;
   CardId?: string;
   InStore?: boolean;
@@ -305,7 +304,7 @@ export type CheckoutShoppingCartPayload = DeepReadonly<{
       | CheckPaymentItemMetadata
       | GiftCardPaymentItemMetadata;
   }[];
-}>;
+};
 
 /**
  * This endpoint provides a wide range of functionality. For example, you can use
@@ -323,7 +322,7 @@ export async function checkoutShoppingCart(
   return await MINDBODY.post('/sale/checkoutshoppingcart', args);
 }
 
-export type PurchaseAccountCreditPayload = DeepReadonly<{
+export type PurchaseAccountCreditPayload = {
   ClientId: string;
   LocationId?: number;
   SendEmailReceipt?: boolean;
@@ -347,7 +346,7 @@ export type PurchaseAccountCreditPayload = DeepReadonly<{
       | CheckPaymentItemMetadata
       | GiftCardPaymentItemMetadata;
   };
-}>;
+};
 
 /**
  * Allows a client to purchase account credit from a business.
@@ -360,7 +359,7 @@ export async function purchaseAccountCredit(
   return await MINDBODY.post('/sale/purchaseaccountcredit', args);
 }
 
-export type PurchaseContractPayload = DeepReadonly<{
+export type PurchaseContractPayload = {
   ClientId: string;
   LocationId?: number;
   ContractId?: number;
@@ -375,7 +374,7 @@ export type PurchaseContractPayload = DeepReadonly<{
   PaymentAuthenticationCallbackUrl?: string;
   CreditCardInfo?: Omit<CreditCardPaymentItemMetadata, 'Amount'>;
   StoredCardInfo?: Omit<StoredCardPaymentItemMetadata, 'Amount'>;
-}>;
+};
 
 /**
  * Allows a client to sign up for a contract or autopay using the information
@@ -394,7 +393,7 @@ export async function purchaseContract(
   return await MINDBODY.post('/sale/purchasecontract', args);
 }
 
-export type PurchaseGiftCardPayload = DeepReadonly<{
+export type PurchaseGiftCardPayload = {
   PurchaserClientId: string;
   GiftCardId: number;
   BarcodeId: string;
@@ -427,7 +426,7 @@ export type PurchaseGiftCardPayload = DeepReadonly<{
       | CheckPaymentItemMetadata
       | GiftCardPaymentItemMetadata;
   };
-}>;
+};
 
 /**
  * Allows a client to purchase a gift card from a business in a variety of
@@ -442,11 +441,11 @@ export async function purchaseGiftCard(
   return await MINDBODY.post('/sale/purchasegiftcard', args);
 }
 
-export type UpdateProductPricePayload = DeepReadonly<{
+export type UpdateProductPricePayload = {
   BarcodeId: string;
   Price?: number;
   OnlinePrice?: number;
-}>;
+};
 
 /**
  * This endpoint updates the retail price and an online price for a product.
@@ -456,14 +455,14 @@ export type UpdateProductPricePayload = DeepReadonly<{
  */
 export async function updateProductPrice(
   args: RequestArgsPost<UpdateProductPricePayload>,
-): Promise<DeepReadonly<{ Product: Product }>> {
+): Promise<{ Product: Product }> {
   return await MINDBODY.post('/sale/updateproductprice', args);
 }
 
-export type ReturnSalePayload = DeepReadonly<{
+export type ReturnSalePayload = {
   SaleId: number;
   ReturnReason: string;
-}>;
+};
 
 /**
  * Return a comped sale for a specified sale ID in business mode. The sale is
@@ -478,9 +477,9 @@ export async function returnSale(
   return await MINDBODY.post('/sale/returnsale', args);
 }
 
-export type InitializeCreditCardEntryPayload = DeepReadonly<{
+export type InitializeCreditCardEntryPayload = {
   LocationId: number;
-}>;
+};
 
 /**
  * This endpoint returns a Callback URL which is used to load Card Element UI with
@@ -498,11 +497,11 @@ export async function initializeCreditCard(
 // PUT /sale/{endpoint}
 // ========================
 
-export type UpdateProductsPayload = DeepReadonly<{
+export type UpdateProductsPayload = {
   BarcodeId: string;
   Price?: number;
   OnlinePrice?: number;
-}>;
+};
 
 /**
  * This endpoint updates the retail price and an online price for products.
@@ -516,11 +515,11 @@ export async function updateProducts(
   return await MINDBODY.put('/sale/products', args);
 }
 
-export type UpdateServicesPayload = DeepReadonly<{
+export type UpdateServicesPayload = {
   BarcodeId: string;
   Price?: number;
   OnlinePrice?: number;
-}>;
+};
 
 /**
  * This endpoint updates the retail price and an online price for services.
@@ -534,10 +533,10 @@ export async function updateServices(
   return await MINDBODY.put('/sale/services', args);
 }
 
-export type UpdateSaleDatePayload = DeepReadonly<{
+export type UpdateSaleDatePayload = {
   SaleID: number;
   SaleDate: string;
-}>;
+};
 
 /**
  * This endpoint updates the SaleDate and returns the details of the sale.

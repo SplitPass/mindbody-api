@@ -1,10 +1,8 @@
-import type { DeepReadonly } from '$types';
-
-export type ClientContracts = DeepReadonly<{
+export type ClientContracts = {
   Contracts: ClientContract[];
-}>;
+};
 
-export type ClientContract = DeepReadonly<{
+export type ClientContract = {
   AgreementDate: string;
   AutopayStatus: 'Active' | 'Inactive' | 'Suspended';
   ContractName: string;
@@ -19,4 +17,4 @@ export type ClientContract = DeepReadonly<{
     PaymentMethod: string;
     ScheduleDate: string;
   }[];
-}>;
+};

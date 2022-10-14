@@ -1,6 +1,6 @@
-import type { DeepReadonly, Nullable } from '$types';
+import type { Nullable } from '$types';
 
-export type StaffSessionTypes = DeepReadonly<{
+export type StaffSessionTypes = {
   StaffSessionTypes: Omit<SessionType, 'OnlineDescription'> &
     {
       StaffId: number;
@@ -10,13 +10,13 @@ export type StaffSessionTypes = DeepReadonly<{
       PayRateType: string;
       PayRateAmount: Nullable<number>;
     }[];
-}>;
+};
 
-export type SessionTypes = DeepReadonly<{
+export type SessionTypes = {
   SessionTypes: SessionType[];
-}>;
+};
 
-export type SessionType = DeepReadonly<{
+export type SessionType = {
   Type:
     | 'All'
     | 'Class'
@@ -36,4 +36,4 @@ export type SessionType = DeepReadonly<{
   Subcategory?: string;
   SubcategoryId?: number;
   OnlineDescription?: string;
-}>;
+};

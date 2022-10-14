@@ -1,6 +1,4 @@
-import type { DeepReadonly } from '$types';
-
-export type ScheduledServiceEarnings = DeepReadonly<{
+export type ScheduledServiceEarnings = {
   ScheduledServiceEarnings: {
     StaffId: number;
     ScheduledServiceId: number;
@@ -8,4 +6,4 @@ export type ScheduledServiceEarnings = DeepReadonly<{
     Earnings: number;
     DateTime: string;
   }[];
-}>;
+};

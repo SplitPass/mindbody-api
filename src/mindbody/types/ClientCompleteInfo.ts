@@ -5,12 +5,11 @@ import type {
   ClientService,
   Contract,
 } from '$mindbody/types';
-import type { DeepReadonly } from '$types';
 
-export type ClientCompleteInfo = DeepReadonly<{
+export type ClientCompleteInfo = {
   Client: Client;
   ClientServices: ClientService[];
   ClientContracts: Contract[];
   ClientMemberships: ClientMembership[];
   ClientArrivals: ClientArrival[];
-}>;
+};

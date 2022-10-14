@@ -1,6 +1,4 @@
-import type { DeepReadonly } from '$types';
-
-export type PurchaseContract = DeepReadonly<{
+export type PurchaseContract = {
   ClientId: string;
   LocationId: number;
   ContractId: number;
@@ -10,4 +8,4 @@ export type PurchaseContract = DeepReadonly<{
     Message: string;
     AuthenticationRedirectUrl: string;
   }[];
-}>;
+};

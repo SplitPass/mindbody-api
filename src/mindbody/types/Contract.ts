@@ -1,10 +1,10 @@
-import type { DeepReadonly, Nullable } from '$types';
+import type { Nullable } from '$types';
 
-export type Contracts = DeepReadonly<{
+export type Contracts = {
   Contracts: Contract[];
-}>;
+};
 
-export type Contract = DeepReadonly<{
+export type Contract = {
   Id: number;
   Name: string;
   Description: string;
@@ -62,4 +62,4 @@ export type Contract = DeepReadonly<{
   TotalContractAmountSubtotal: number;
   TotalContractAmountTax: number;
   TotalContractAmountTotal: number;
-}>;
+};

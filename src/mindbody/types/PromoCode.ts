@@ -1,11 +1,10 @@
 import type { ApplicableItem } from '$mindbody/types';
-import type { DeepReadonly } from '$types';
 
-export type PromoCodes = DeepReadonly<{
+export type PromoCodes = {
   PromoCodes: PromoCode[];
-}>;
+};
 
-export type PromoCode = DeepReadonly<{
+export type PromoCode = {
   Name: string;
   Code: string;
   Active: boolean;
@@ -20,4 +19,4 @@ export type PromoCode = DeepReadonly<{
   AllowOnline: number;
   DaysValid: string[];
   ApplicableItems: ApplicableItem[];
-}>;
+};

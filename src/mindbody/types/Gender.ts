@@ -1,12 +1,10 @@
-import type { DeepReadonly } from '$types';
-
-export type GenderOptions = DeepReadonly<{
+export type GenderOptions = {
   GenderOptions: Gender[];
-}>;
+};
 
-export type Gender = DeepReadonly<{
+export type Gender = {
   Id: number;
   Name: string;
   IsActive: boolean;
   IsDefault: boolean;
-}>;
+};

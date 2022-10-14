@@ -1,8 +1,6 @@
-import type { DeepReadonly } from '$types';
-
-export type Unavailability = DeepReadonly<{
+export type Unavailability = {
   Id: number;
   StartDateTime: string;
   EndDateTime: string;
   Description: string;
-}>;
+};

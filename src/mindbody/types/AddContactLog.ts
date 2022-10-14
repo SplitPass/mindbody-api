@@ -1,7 +1,6 @@
 import type { Client, Staff } from '$mindbody/types';
-import type { DeepReadonly } from '$types';
 
-export type AddContactLog = DeepReadonly<{
+export type AddContactLog = {
   Id: number;
   Text: string;
   CreatedDateTime: string;
@@ -23,4 +22,4 @@ export type AddContactLog = DeepReadonly<{
       }[];
     }[];
   }[];
-}>;
+};

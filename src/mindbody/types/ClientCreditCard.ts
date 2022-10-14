@@ -1,6 +1,4 @@
-import type { DeepReadonly } from '$types';
-
-export type ClientCreditCard = DeepReadonly<{
+export type ClientCreditCard = {
   Address: string;
   CardHolder: string;
   CardNumber: string;
@@ -11,4 +9,4 @@ export type ClientCreditCard = DeepReadonly<{
   LastFour: string;
   PostalCode: string;
   State: string;
-}>;
+};

@@ -1,11 +1,9 @@
-import type { DeepReadonly } from '$types';
-
-export type ProspectStages = DeepReadonly<{
+export type ProspectStages = {
   ProspectStages: ProspectStage[];
-}>;
+};
 
-export type ProspectStage = DeepReadonly<{
+export type ProspectStage = {
   Id: number;
   Active: boolean;
   Description: string;
-}>;
+};

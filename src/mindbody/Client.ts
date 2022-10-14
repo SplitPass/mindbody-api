@@ -37,7 +37,6 @@ import type {
   UpdatedContactLog,
   Visit,
 } from '$mindbody/types';
-import type { DeepReadonly } from '$types';
 
 import { MindbodyClient } from '$http/MindbodyClient';
 
@@ -440,12 +439,12 @@ export async function getContactLogTypes(
 // POST /client/{endpoint}
 // ------------------------
 
-export type AddArivalPayload = DeepReadonly<{
+export type AddArivalPayload = {
   ClientId: string;
   LocationId: number;
   ArrivalTypeId?: number;
   Test?: boolean;
-}>;
+};
 
 /**
  * Marks a client as arrived for a specified location. A staff user token must
@@ -461,16 +460,14 @@ export type AddArivalPayload = DeepReadonly<{
  */
 export async function addArival(
   args: RequestArgsPost<AddArivalPayload>,
-): Promise<
-  DeepReadonly<{
-    ArrivalAdded: boolean;
-    ClientService: ClientService;
-  }>
-> {
+): Promise<{
+  ArrivalAdded: boolean;
+  ClientService: ClientService;
+}> {
   return await MINDBODY.post('/client/addarrival', args);
 }
 
-export type AddClientPayload = DeepReadonly<{
+export type AddClientPayload = {
   FirstName: string;
   LastName: string;
   AccountBalance?: number;
@@ -531,7 +528,7 @@ export type AddClientPayload = DeepReadonly<{
   WorkExtension?: string;
   WorkPhone?: string;
   YellowAlert?: string;
-}>;
+};
 
 /**
  * Creates a new client record at the specified business. Passing a User Token
@@ -553,15 +550,14 @@ export type AddClientPayload = DeepReadonly<{
  */
 export async function addClient(
   args: RequestArgsPost<AddClientPayload>,
-): Promise<DeepReadonly<{ Client: Client }>> {
+): Promise<{ Client: Client }> {
   return await MINDBODY.post('/client/addclient', args);
 }
 
-export type AddClientDirectDebitInfoPayload = DeepReadonly<{
+export type AddClientDirectDebitInfoPayload = {
   ClientId: string;
   Test?: boolean;
-}> &
-  DirectDebitInfo;
+} & DirectDebitInfo;
 
 /**
  * This endpoint adds direct debit info to a client’s account. This endpoint requires staff user credentials.
@@ -570,15 +566,15 @@ export type AddClientDirectDebitInfoPayload = DeepReadonly<{
  */
 export async function addClientDirectDebitInfo(
   args: RequestArgsPost<AddClientDirectDebitInfoPayload>,
-): Promise<DeepReadonly<{ ClientId: string } & DirectDebitInfo>> {
+): Promise<{ ClientId: string } & DirectDebitInfo> {
   return await MINDBODY.post('/client/addclientdirectdebitinfo', args);
 }
 
-export type AddClientFormulaNotePayload = DeepReadonly<{
+export type AddClientFormulaNotePayload = {
   ClientId: string;
   Note: string;
   AppointmentId?: number;
-}>;
+};
 
 /**
  * This endpoint adds a formula note for a specified client or specified client appointment.
@@ -589,20 +585,18 @@ export type AddClientFormulaNotePayload = DeepReadonly<{
  */
 export async function addClientFormulaNote(
   args: RequestArgsPost<AddClientFormulaNotePayload>,
-): Promise<
-  DeepReadonly<{
-    Id: string;
-    AppointmentId: string;
-    EntryDate: string;
-    Note: string;
-    SiteId: number;
-    SiteName: string;
-  }>
-> {
+): Promise<{
+  Id: string;
+  AppointmentId: string;
+  EntryDate: string;
+  Note: string;
+  SiteId: number;
+  SiteName: string;
+}> {
   return await MINDBODY.post('/client/addclientformulanote', args);
 }
 
-export type AddContactLogPayload = DeepReadonly<{
+export type AddContactLogPayload = {
   ClientId: string;
   AssignedToStaffId: number;
   Text: string;
@@ -616,21 +610,21 @@ export type AddContactLogPayload = DeepReadonly<{
     SubTypes: number[];
   }[];
   Test?: boolean;
-}>;
+};
 
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#add-contact-log
  */
 export async function addContactLog(
   args: RequestArgsPost<AddContactLogPayload>,
-): Promise<DeepReadonly<{ AddedContactLog: AddContactLog }>> {
+): Promise<{ AddedContactLog: AddContactLog }> {
   return await MINDBODY.post('/client/addcontactlog', args);
 }
 
-export type SendAutoEmailPayload = DeepReadonly<{
+export type SendAutoEmailPayload = {
   ClientId: string;
   EmailType: 'BusinessWelcomeEmail' | 'ConsumerWelcomeEmail';
-}>;
+};
 
 /**
  * This endpoint requires staff user credentials.
@@ -648,11 +642,11 @@ export async function sendAutoEmail(
   await MINDBODY.post('/client/sendautoemail', args);
 }
 
-export type SendPasswordResetEmailPayload = DeepReadonly<{
+export type SendPasswordResetEmailPayload = {
   UserEmail: string;
   UserFirstName: string;
   UserLastName: string;
-}>;
+};
 
 /**
  * This endpoint causes an email to be sent to the requested user. It does not return a response.
@@ -665,13 +659,13 @@ export async function sendPasswordResetEmail(
   await MINDBODY.post('/client/sendpasswordresetemail', args);
 }
 
-export type TerminateContractPayload = DeepReadonly<{
+export type TerminateContractPayload = {
   ClientId: string;
   ClientContractId: number;
   TerminateDate: string;
   TerminationCode?: string;
   TerminationComments?: string;
-}>;
+};
 
 /**
  * This endpoint terminates a client contract. This endpoint requires staff
@@ -681,16 +675,16 @@ export type TerminateContractPayload = DeepReadonly<{
  */
 export async function terminateContract(
   args: RequestArgsPost<TerminateContractPayload>,
-): Promise<DeepReadonly<{ Message: string }>> {
+): Promise<{ Message: string }> {
   return await MINDBODY.post('/client/terminatecontract', args);
 }
 
-export type UpdateClientPayload = DeepReadonly<{
+export type UpdateClientPayload = {
   Client: Partial<Client>;
   CrossRegionalUpdate?: boolean;
   NewId?: string;
   Text?: boolean;
-}>;
+};
 
 /**
  * Updates an existing client for a specific subscriber. Passing a User Token
@@ -741,18 +735,18 @@ export type UpdateClientPayload = DeepReadonly<{
  */
 export async function updateClient(
   args: RequestArgsPost<UpdateClientPayload>,
-): Promise<DeepReadonly<{ Client: Client }>> {
+): Promise<{ Client: Client }> {
   return await MINDBODY.post('/client/updateclient', args);
 }
 
-export type UpdateClientRewardsPayload = DeepReadonly<{
+export type UpdateClientRewardsPayload = {
   ClientId: string;
   Action: 'Earned' | 'Redeemed';
   Points: number;
   Source: 'Appointment Booking' | 'Class Booking' | 'Referral' | 'Sale';
   SourceID?: number;
   ActionDateTime?: string;
-}>;
+};
 
 /**
  * Earns or redeems rewards points for a given client, based on site settings.
@@ -766,13 +760,13 @@ export async function updateClientRewards(
   return await MINDBODY.post('/client/clientrewards', args);
 }
 
-export type UpdateClientServicePayload = DeepReadonly<{
+export type UpdateClientServicePayload = {
   ServiceId: string;
   ActiveDate?: string;
   ExpirationDate?: string;
   Count?: number;
   Test?: boolean;
-}>;
+};
 
 /**
  * Updates the active date and/or expiration date of a client pricing option.
@@ -784,18 +778,18 @@ export type UpdateClientServicePayload = DeepReadonly<{
  */
 export async function updateClientService(
   args: RequestArgsPost<UpdateClientServicePayload>,
-): Promise<DeepReadonly<{ ClientService: ClientService }>> {
+): Promise<{ ClientService: ClientService }> {
   return await MINDBODY.post('/client/updateclientservice', args);
 }
 
-export type UpdateClientVisitPayload = DeepReadonly<{
+export type UpdateClientVisitPayload = {
   VisitId: string;
   MakeUp: boolean;
   SignedIn: boolean;
   Exectute: 'Cancel' | 'LateCancel' | 'Unlatecancel';
   Test?: boolean;
   SendEmail?: boolean;
-}>;
+};
 
 /**
  * Updates the status of the specified visit.
@@ -804,11 +798,11 @@ export type UpdateClientVisitPayload = DeepReadonly<{
  */
 export async function updateClientVisit(
   args: RequestArgsPost<UpdateClientVisitPayload>,
-): Promise<DeepReadonly<{ Visit: Visit }>> {
+): Promise<{ Visit: Visit }> {
   return await MINDBODY.post('/client/updateclientvisit', args);
 }
 
-export type UpdateContactLogPayload = DeepReadonly<{
+export type UpdateContactLogPayload = {
   Id: number;
   AssignedToStaffId: number;
   Text: string;
@@ -825,18 +819,18 @@ export type UpdateContactLogPayload = DeepReadonly<{
     SubTypes: number[];
   }[];
   Test?: boolean;
-}>;
+};
 
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#update-contact-log
  */
 export async function updateContactLog(
   args: RequestArgsPost<UpdateContactLogPayload>,
-): Promise<DeepReadonly<{ UpdatedContactLog: UpdatedContactLog }>> {
+): Promise<{ UpdatedContactLog: UpdatedContactLog }> {
   return await MINDBODY.post('/client/updatecontactlog', args);
 }
 
-export type UploadClientDocumentPayload = DeepReadonly<{
+export type UploadClientDocumentPayload = {
   ClientId: string;
   File: {
     FileName: string;
@@ -861,21 +855,21 @@ export type UploadClientDocumentPayload = DeepReadonly<{
       | 'pptx'
       | 'mov';
   };
-}>;
+};
 
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#upload-client-document
  */
 export async function uploadClientDocument(
   args: RequestArgsPost<UploadClientDocumentPayload>,
-): Promise<DeepReadonly<{ FileSize: number; FileName: string }>> {
+): Promise<{ FileSize: number; FileName: string }> {
   return await MINDBODY.post('/client/uploadclientdocument', args);
 }
 
-export type UploadClientPhotoPayload = DeepReadonly<{
+export type UploadClientPhotoPayload = {
   Bytes: string;
   ClientId: string;
-}>;
+};
 
 /**
  * Uploads a client’s profile photo. The maximum file size is 4 MB and acceptable file types are:
@@ -890,7 +884,7 @@ export type UploadClientPhotoPayload = DeepReadonly<{
  */
 export async function uploadClientPhoto(
   args: RequestArgsPost<UploadClientPhotoPayload>,
-): Promise<DeepReadonly<{ ClientId: number; PhotoUrl: string }>> {
+): Promise<{ ClientId: number; PhotoUrl: string }> {
   return await MINDBODY.post('/client/uploadclientphoto', args);
 }
 
@@ -898,9 +892,9 @@ export async function uploadClientPhoto(
 // DELETE /client/{endpoint}
 // ------------------------
 
-export type DeleteClientDirectDebitInfoQueryParams = DeepReadonly<{
+export type DeleteClientDirectDebitInfoQueryParams = {
   ClientId: string;
-}>;
+};
 
 /**
  * This endpoint deletes direct debit info from a client’s account.
@@ -914,10 +908,10 @@ export async function deleteClientDirectDebitInfoQ(
   return await MINDBODY.delete('/client/clientdirectdebitinfo', args);
 }
 
-export type DeleteClientFormulaNoteQueryParams = DeepReadonly<{
+export type DeleteClientFormulaNoteQueryParams = {
   ClientId: string;
   FormulaNoteId: number;
-}>;
+};
 
 /**
  * This endpoint deletes an existing formula note. A staff user token must be
@@ -932,11 +926,11 @@ export async function deleteClientFormulaNote(
   return await MINDBODY.delete('/client/clientformulanote', args);
 }
 
-export type DeleteContactLogQueryParams = DeepReadonly<{
+export type DeleteContactLogQueryParams = {
   ClientId: string;
   ContactLogId: number;
   Test?: boolean;
-}>;
+};
 
 /**
  * This endpoint deletes contactlog of client. This endpoint requires staff user credentials.

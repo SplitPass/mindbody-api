@@ -1,6 +1,6 @@
 {
   "name": "mindbody-api-v6",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Type safe library for interacting with Mindbody's Public API (v6) and Webhooks",
   "author": "Kyle Surowiec <kyle@splitpass.com>",
   "contributors": [
@@ -13,7 +13,8 @@
     "mindbody-api",
     "booking",
     "fitness",
-    "node"
+    "node",
+    "typescript"
   ],
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -25,6 +26,13 @@
       "types": "./dist/index.d.ts"
     }
   },
+  "files": [
+    "dist/*.js",
+    "dist/*.mjs",
+    "dist/*.d.ts",
+    "dist/*.map",
+    "README.MD"
+  ],
   "engines": {
     "node": ">=12.4"
   },

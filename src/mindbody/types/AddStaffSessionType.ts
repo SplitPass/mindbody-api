@@ -1,6 +1,4 @@
-import type { DeepReadonly } from '$types';
-
-export type AddStaffSessionType = DeepReadonly<{
+export type AddStaffSessionType = {
   StaffId: number;
   SessionType: number;
   Active: boolean;
@@ -10,4 +8,4 @@ export type AddStaffSessionType = DeepReadonly<{
   PayRateTime: number;
   PayRateType: string;
   PayRateAmount: number;
-}>;
+};

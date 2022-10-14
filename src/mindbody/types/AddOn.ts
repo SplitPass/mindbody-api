@@ -1,13 +1,11 @@
-import type { DeepReadonly } from '$types';
-
-export type AddOns = DeepReadonly<{
+export type AddOns = {
   AddOnds: AddOn[];
-}>;
+};
 
-export type AddOn = DeepReadonly<{
+export type AddOn = {
   Name: string;
   Id: number;
   NumDeducted: number;
   Category: string;
   CategoryId: string;
-}>;
+};

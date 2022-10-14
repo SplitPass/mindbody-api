@@ -1,10 +1,10 @@
-import type { DeepReadonly, Nullable } from '$types';
+import type { Nullable } from '$types';
 
-export type Transactions = DeepReadonly<{
+export type Transactions = {
   Transactions: Transaction[];
-}>;
+};
 
-export type Transaction = DeepReadonly<{
+export type Transaction = {
   TransactionId: number;
   SaleId: number;
   ClientId: number;
@@ -22,4 +22,4 @@ export type Transaction = DeepReadonly<{
   CardType: string;
   CCSwiped: boolean;
   ACHLastFour: string;
-}>;
+};

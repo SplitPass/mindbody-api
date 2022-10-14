@@ -1,11 +1,10 @@
 import type { Program } from '$mindbody/types';
-import type { DeepReadonly } from '$types';
 
-export type ClientServices = DeepReadonly<{
+export type ClientServices = {
   ClientServices: ClientService[];
-}>;
+};
 
-export type ClientService = DeepReadonly<{
+export type ClientService = {
   ActiveDate: string;
   Count: number;
   Current: boolean;
@@ -18,4 +17,4 @@ export type ClientService = DeepReadonly<{
   Remaining: number;
   SiteId: number;
   Action: 'None' | 'Added' | 'Updated' | 'Failed' | 'Removed';
-}>;
+};

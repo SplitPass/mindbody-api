@@ -1,11 +1,10 @@
-import type { DeepReadonly } from '$types';
 import type { ClassSchedule, Client } from '$mindbody/types';
 
-export type WaitlistEntries = DeepReadonly<{
+export type WaitlistEntries = {
   WaitlistEntries: WaitlistEntry[];
-}>;
+};
 
-export type WaitlistEntry = DeepReadonly<{
+export type WaitlistEntry = {
   ClassDate: string;
   ClassId: number;
   ClassSchedule: ClassSchedule;
@@ -15,4 +14,4 @@ export type WaitlistEntry = DeepReadonly<{
   RequestDateTime: string;
   VisitRefNo: number;
   Web: boolean;
-}>;
+};

@@ -1,18 +1,16 @@
-import type { DeepReadonly } from '$types';
-
-export type ServiceItemMetadata = DeepReadonly<{
+export type ServiceItemMetadata = {
   Id: number;
-}>;
+};
 
-export type ProductItemMetadata = DeepReadonly<{
+export type ProductItemMetadata = {
   Id: number;
-}>;
+};
 
-export type PackageItemMetadata = DeepReadonly<{
+export type PackageItemMetadata = {
   Id: number;
-}>;
+};
 
-export type TipItemMetadata = DeepReadonly<{
+export type TipItemMetadata = {
   StaffId: number;
   Amount: number;
-}>;
+};

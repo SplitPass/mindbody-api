@@ -3,13 +3,13 @@ import type {
   Availability,
   Unavailability,
 } from '$mindbody/types';
-import type { DeepReadonly, Nullable } from '$types';
+import type { Nullable } from '$types';
 
-export type StaffMembers = DeepReadonly<{
+export type StaffMembers = {
   StaffMembers: Staff[];
-}>;
+};
 
-export type Staff = DeepReadonly<{
+export type Staff = {
   Address: Nullable<string>;
   AppointmentInstructor: boolean;
   AlwaysAllowDoubleBooking: boolean;
@@ -51,4 +51,4 @@ export type Staff = DeepReadonly<{
     UseStaffNicknames: Nullable<boolean>;
     ShowStaffLastNamesOnSchedules: Nullable<boolean>;
   };
-}>;
+};

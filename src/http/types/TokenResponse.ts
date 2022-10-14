@@ -1,6 +1,4 @@
-import type { DeepReadonly } from '$types';
-
-export type TokenResponse = DeepReadonly<{
+export type TokenResponse = {
   TokenType: string;
   AccessToken: string;
   User: {
@@ -9,4 +7,4 @@ export type TokenResponse = DeepReadonly<{
     LastName: string;
     Type: string;
   };
-}>;
+};

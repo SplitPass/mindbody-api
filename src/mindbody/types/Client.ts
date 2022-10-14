@@ -7,13 +7,13 @@ import type {
   ProspectStage,
   SalesRep,
 } from '$mindbody/types';
-import type { DeepReadonly, Nullable } from '$types';
+import type { Nullable } from '$types';
 
-export type Clients = DeepReadonly<{
+export type Clients = {
   Clients: Client[];
-}>;
+};
 
-export type Client = DeepReadonly<{
+export type Client = {
   AppointmentGenderPreference: string;
   BirthDate: Nullable<string>;
   Country: string;
@@ -79,4 +79,4 @@ export type Client = DeepReadonly<{
     SuspensionStartDate: Nullable<string>;
     SuspensionEndDate: Nullable<string>;
   }>;
-}>;
+};

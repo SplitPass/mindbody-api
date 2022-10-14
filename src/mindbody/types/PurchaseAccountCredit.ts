@@ -1,6 +1,6 @@
-import type { DeepReadonly, Nullable } from '$types';
+import type { Nullable } from '$types';
 
-export type PurchaseAccountCredit = DeepReadonly<{
+export type PurchaseAccountCredit = {
   AmountPaid: number;
   ClientId: number;
   SalesId: number;
@@ -10,4 +10,4 @@ export type PurchaseAccountCredit = DeepReadonly<{
     Message: string;
     AuthenticationRedirectUrl: string;
   }>;
-}>;
+};

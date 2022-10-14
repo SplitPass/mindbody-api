@@ -1,6 +1,4 @@
-import type { DeepReadonly } from '$types';
-
-export type PurchasedItem = DeepReadonly<{
+export type PurchasedItem = {
   SaleDetailId: number;
   Id: number;
   IsService: boolean;
@@ -25,4 +23,4 @@ export type PurchasedItem = DeepReadonly<{
   PaymentRefId: number;
   ExpDate: string;
   ActiveDate: string;
-}>;
+};

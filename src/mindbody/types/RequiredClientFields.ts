@@ -1,5 +1,3 @@
-import type { DeepReadonly } from '$types';
-
-export type RequiredClientFields = DeepReadonly<{
+export type RequiredClientFields = {
   RequiredClientFields: string[];
-}>;
+};

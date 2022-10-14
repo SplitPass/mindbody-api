@@ -1,6 +1,4 @@
-import type { DeepReadonly } from '$types';
-
-export type ProductsInventory = DeepReadonly<{
+export type ProductsInventory = {
   ProductsInventory: {
     ProductId: number;
     BarcodeId: string;
@@ -13,13 +11,13 @@ export type ProductsInventory = DeepReadonly<{
     CreatedDateTimeUTC: string;
     ModifiedDateTimeUTC: string;
   };
-}>;
+};
 
-export type Products = DeepReadonly<{
+export type Products = {
   Products: Product[];
-}>;
+};
 
-export type Product = DeepReadonly<{
+export type Product = {
   ProductId: number;
   Id: string;
   CategoryId: number;
@@ -45,4 +43,4 @@ export type Product = DeepReadonly<{
     Name: string;
   };
   ManufacturerId: string;
-}>;
+};
