@@ -28,6 +28,7 @@ import type {
   DirectDebitInfo,
   FormulaNote,
   FormulaNotes,
+  Location,
   ReferralTypes,
   Relationship,
   RequiredClientFields,

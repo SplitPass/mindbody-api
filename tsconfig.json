@@ -1,12 +1,18 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
+    "alwaysStrict": true,
     "baseUrl": "./src",
+    "declaration": true,
     "esModuleInterop": true,
     "importsNotUsedAsValues": "error",
     "isolatedModules": true,
+    "lib": ["ES2019"],
+    "module": "commonjs",
     "moduleResolution": "node",
+    "outDir": "./dist",
     "paths": {
       "$http/*": ["http/*"],
       "$mindbody/*": ["mindbody/*"],

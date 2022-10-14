@@ -1,4 +1,4 @@
-import type { ClientService } from '$mindbody/types';
+import type { ClientService, Location } from '$mindbody/types';
 
 export type ActiveClientMemberships = {
   ClientMemberships: ClientMembership[];
