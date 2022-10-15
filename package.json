@@ -1,6 +1,6 @@
 {
   "name": "mindbody-api-v6",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Type safe library for interacting with Mindbody's Public API (v6) and Webhooks",
   "author": "Kyle Surowiec <kyle@splitpass.com>",
   "contributors": [
