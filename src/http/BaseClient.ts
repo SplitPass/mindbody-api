@@ -24,18 +24,16 @@ export class BaseClient {
             | undefined;
 
           if (serverErrorMessage != null) {
-            void Promise.reject(
-              new Error(
-                'Mindbody Internal Server Error: ' + serverErrorMessage,
-              ),
+            throw new Error(
+              'Mindbody Internal Server Error: ' + serverErrorMessage,
             );
           }
 
           const error = err.response.data as ErrorResponse;
-          void Promise.reject(new MindbodyError(error));
+          throw new MindbodyError(error);
         }
 
-        void Promise.reject(err);
+        throw new Error('Unknown error');
       },
     );
   }
