@@ -1,6 +1,6 @@
 {
   "name": "mindbody-api-v6",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Type safe library for interacting with Mindbody's Public API (v6) and Webhooks",
   "author": "Kyle Surowiec <kyle@splitpass.com>",
   "contributors": [
@@ -28,8 +28,8 @@
     }
   },
   "files": [
-    "dist/esm/index.js",
-    "dist/cjs/index.mjs",
+    "dist/esm/index.mjs",
+    "dist/cjs/index.cjs",
     "dist/types.d.ts",
     "README.MD"
   ],

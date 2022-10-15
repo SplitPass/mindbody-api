@@ -1,7 +1,7 @@
 <div>
     <h1>Mindbody API</h1>
     <p><b>Type safe library for interacting with Mindbody's Public API (v6) and Webhooks</b></p>
-    <img src="https://img.shields.io/badge/latest-0.1.5-black?style=flat-square" alt="Latest version of splitpass/mindbody-api is 0.1.5">
+    <img src="https://img.shields.io/badge/latest-0.1.6-black?style=flat-square" alt="Latest version of splitpass/mindbody-api is 0.1.6">
 </div>
 <br />
 
