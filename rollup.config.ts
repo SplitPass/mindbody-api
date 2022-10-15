@@ -1,3 +1,4 @@
+import cleanup from 'rollup-plugin-cleanup';
 import dts from 'rollup-plugin-dts';
 import typescript from '@rollup/plugin-typescript';
 
@@ -17,10 +18,16 @@ export default [
       {
         file: 'dist/cjs/index.mjs',
         format: 'cjs',
-        exports: 'default',
+        exports: 'named',
       },
     ],
-    plugins: [typescript()],
+    plugins: [
+      typescript(),
+      cleanup({
+        comments: 'none',
+        extensions: '.ts',
+      }),
+    ],
   },
   {
     input: 'src/index.ts',

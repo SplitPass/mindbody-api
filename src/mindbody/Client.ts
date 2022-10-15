@@ -8,11 +8,9 @@ import type {
 import type {
   ActiveClientMemberships,
   AddContactLog,
-  AssignedClientIndex,
   Client,
   ClientCompleteInfo,
   ClientContracts,
-  ClientCreditCard,
   ClientDuplicates,
   ClientIndexes,
   Clients,
@@ -26,18 +24,14 @@ import type {
   CrossRegionalClientAssociations,
   CustomClientFields,
   DirectDebitInfo,
-  FormulaNote,
   FormulaNotes,
-  Location,
   ReferralTypes,
-  Relationship,
   RequiredClientFields,
-  ProspectStage,
-  SalesRep,
   UpdatedClientRewards,
   UpdatedContactLog,
   Visit,
 } from '$mindbody/types';
+import type { MarkRequired } from 'ts-essentials';
 
 import { MindbodyClient } from '$http/MindbodyClient';
 
@@ -466,68 +460,10 @@ async function addArival(args: RequestArgsPost<AddArivalPayload>): Promise<{
   return await MINDBODY.post('/client/addarrival', args);
 }
 
-export type AddClientPayload = {
-  FirstName: string;
-  LastName: string;
-  AccountBalance?: number;
-  Action?: 'None' | 'Added' | 'Updated' | 'Failed';
-  AddressLine1?: string;
-  AddressLine2?: string;
-  ApptGenderPrefMale?: boolean;
-  BirthDate?: string;
-  City?: string;
-  ClientCreditCard?: ClientCreditCard;
-  ClientIndexes?: AssignedClientIndex[];
-  ClientRelationships?: {
-    RelatedClient: {
-      Id: string;
-    };
-    Relationship: Relationship;
-  }[];
-  Country?: string;
-  CreationDate?: string;
-  CustomClientFields?: { Value: string }[];
-  Email?: string;
-  EmergencyContactInfoEmail?: string;
-  EmergencyContactInfoPhone?: string;
-  EmergencyContactInfoRelationship?: string;
-  FirstAppointmentDate?: string;
-  Gender?: string;
-  HomeLocation?: Location;
-  HomePhone?: string;
-  IsCompany?: boolean;
-  IsProspect?: boolean;
-  LastFormulaNotes?: FormulaNote;
-  LastModifiedDate?: string;
-  Liability?: {
-    AgreementDate: string;
-    IsReleased: boolean;
-    ReleasedBy: string;
-  };
-  LiabilityRelease?: boolean;
-  MembershipIcon?: number;
-  MiddleName?: string;
-  MobilePhone?: string;
-  NewId?: string;
-  Notes?: string;
-  PhotoUrl?: string;
-  PostalCode?: string;
-  ProspectStage?: ProspectStage;
-  RedAlert?: string;
-  ReferredBy?: string;
-  SalesReps?: SalesRep[];
-  SendAccountEmails?: boolean;
-  SendScheduleEmails?: boolean;
-  SendPromotionalEmails?: boolean;
-  SiteId?: number;
-  State?: string;
-  Status?: string;
-  Test?: boolean;
-  UniqueId?: number;
-  WorkExtension?: string;
-  WorkPhone?: string;
-  YellowAlert?: string;
-};
+export type AddClientPayload = MarkRequired<
+  Partial<Client>,
+  'FirstName' | 'LastName'
+>;
 
 /**
  * Creates a new client record at the specified business. Passing a User Token
