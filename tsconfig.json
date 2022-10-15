@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
+    "alwaysStrict": true,
     "baseUrl": "./src",
     "esModuleInterop": true,
     "importsNotUsedAsValues": "error",
     "isolatedModules": true,
+    "lib": ["ES2019"],
+    "module": "ESNext",
     "moduleResolution": "node",
     "paths": {
       "$http/*": ["http/*"],
@@ -17,6 +21,6 @@
     "target": "ES2019",
     "types": ["node"]
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "rollup.config.ts"],
   "exclude": ["node_modules"]
 }

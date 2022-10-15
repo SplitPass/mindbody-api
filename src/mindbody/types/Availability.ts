@@ -1,4 +1,4 @@
-import type { Program, SessionType, Staff } from '$mindbody/types';
+import type { Location, Program, SessionType, Staff } from '$mindbody/types';
 
 export type Availabilities = {
   Availabilities: Availability[];

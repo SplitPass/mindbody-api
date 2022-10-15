@@ -45,7 +45,7 @@ export type GetClassesQueryParams = QueryParams<{
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#class-endpoint
  */
-export async function getClasses(
+async function getClasses(
   args: RequestArgsGetOptionalParams<GetClassesQueryParams>,
 ): Promise<Classes> {
   return await MINDBODY.get('/class/classes', args);
@@ -63,7 +63,7 @@ export type GetClassDescriptionsQueryParams = QueryParams<{
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-class-descriptions
  */
-export async function getClassDescriptions(
+async function getClassDescriptions(
   args: RequestArgsGet<GetClassDescriptionsQueryParams>,
 ): Promise<ClassDescriptions> {
   return await MINDBODY.get('/class/classdescriptions', args);
@@ -81,7 +81,7 @@ export type GetClassSchedulesQueryParams = QueryParams<{
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-class-schedules
  */
-export async function getClassSchedules(
+async function getClassSchedules(
   args: RequestArgsGetOptionalParams<GetClassSchedulesQueryParams>,
 ): Promise<ClassSchedules> {
   return await MINDBODY.get('/class/classschedules', args);
@@ -98,7 +98,7 @@ export type GetClassVisitsQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-class-visit
  */
-export async function getClassVisits(
+async function getClassVisits(
   args: RequestArgsGet<GetClassVisitsQueryParams>,
 ): Promise<{ Class: Class }> {
   return await MINDBODY.get('/class/classvisits', args);
@@ -119,7 +119,7 @@ export type GetCoursesQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-courses
  */
-export async function getCourses(
+async function getCourses(
   args: RequestArgsGetOptionalParams<GetCoursesQueryParams>,
 ): Promise<Courses> {
   return await MINDBODY.get('/class/courses', args);
@@ -139,7 +139,7 @@ export type GetWaitlistEntriesQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-wait-list-entries
  */
-export async function getWaitlistEntries(
+async function getWaitlistEntries(
   args: RequestArgsGetOptionalParams<GetWaitlistEntriesQueryParams>,
 ): Promise<WaitlistEntries> {
   return await MINDBODY.get('/class/waitlistentries', args);
@@ -157,7 +157,7 @@ export type GetSemestersQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-semesters
  */
-export async function getSemesters(
+async function getSemesters(
   args: RequestArgsGetOptionalParams<GetSemestersQueryParams>,
 ): Promise<Semesters> {
   return await MINDBODY.get('/class/semesters', args);
@@ -223,7 +223,7 @@ export type AddClientToClassPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#add-client-to-class
  */
-export async function addClientToClass(
+async function addClientToClass(
   args: RequestArgsPost<AddClientToClassPayload>,
 ): Promise<{ Visit: Visit }> {
   return await MINDBODY.post('/class/addclienttoclass', args);
@@ -240,7 +240,7 @@ export type RemoveClientFromClassPayload = {
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#remove-client-from-class
  */
-export async function removeClientFromClass(
+async function removeClientFromClass(
   args: RequestArgsPost<RemoveClientFromClassPayload>,
 ): Promise<{ Class: Class }> {
   return await MINDBODY.post('/class/removeclientfromclass', args);
@@ -259,7 +259,7 @@ export type RemoveClientsFromClassesPayload = {
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#remove-clients-from-classes
  */
-export async function removeClientsFromClasses(
+async function removeClientsFromClasses(
   args: RequestArgsPost<RemoveClientsFromClassesPayload>,
 ): Promise<Classes & { Errors: { Message: string; Code: ErrorCode }[] }> {
   return await MINDBODY.post('/class/removeclientsfromclasses', args);
@@ -275,7 +275,7 @@ export type RemoveFromWaitlistPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#remove-from-waitlist
  */
-export async function removeFromWaitlist(
+async function removeFromWaitlist(
   args: RequestArgsPost<RemoveFromWaitlistPayload>,
 ): Promise<void> {
   await MINDBODY.post('/class/removefromwaitlist', args);
@@ -293,7 +293,7 @@ export type SubstituteClassTeacherPayload = {
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#substitute-class-teacher
  */
-export async function substituteClassTeacher(
+async function substituteClassTeacher(
   args: RequestArgsPost<SubstituteClassTeacherPayload>,
 ): Promise<{ Class: Class }> {
   return await MINDBODY.post('/class/substituteclassteacher', args);
@@ -309,8 +309,24 @@ export type CancelSingleClassPayload = {
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#cancel-single-class
  */
-export async function cancelSingleClass(
+async function cancelSingleClass(
   args: RequestArgsPost<CancelSingleClassPayload>,
 ): Promise<{ Message: string }> {
   return await MINDBODY.post('/class/cancelsingleclass', args);
 }
+
+export default {
+  getClasses,
+  getClassDescriptions,
+  getClassSchedules,
+  getClassVisits,
+  getCourses,
+  getWaitlistEntries,
+  getSemesters,
+  addClientToClass,
+  removeClientFromClass,
+  removeClientsFromClasses,
+  removeFromWaitlist,
+  cancelSingleClass,
+  substituteClassTeacher,
+};

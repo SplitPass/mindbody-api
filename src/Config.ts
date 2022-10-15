@@ -28,7 +28,7 @@ let FULL_CREDENTIALS_PROVIDED = false;
  * Config.setup({ apiKey: 'api-key', username: 'username', password: 'password' });
  * ```
  */
-export class Config {
+export default class Config {
   private constructor() {}
 
   public static setup(config: MindbodyConfig): void {

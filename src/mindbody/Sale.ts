@@ -53,7 +53,7 @@ const MINDBODY = MindbodyClient.get();
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-accepted-card-types
  */
-export async function getAcceptedCardsTypes(
+async function getAcceptedCardsTypes(
   args: RequestArgsGetOptionalParams<never>,
 ): Promise<string[]> {
   return await MINDBODY.get('/sale/acceptedcardtypes', args);
@@ -74,7 +74,7 @@ export type GetContractsQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-contracts
  */
-export async function getContracts(
+async function getContracts(
   args: RequestArgsGetOptionalParams<GetContractsQueryParams>,
 ): Promise<Contracts> {
   return await MINDBODY.get('/sale/contracts', args);
@@ -83,7 +83,7 @@ export async function getContracts(
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-custom-payment-methods
  */
-export async function getCustomPaymentMethods(
+async function getCustomPaymentMethods(
   args: RequestArgsGetOptionalParams<never>,
 ): Promise<CustomPaymentMethod> {
   return await MINDBODY.get('/sale/custompaymentmethods', args);
@@ -96,7 +96,7 @@ export type GetGiftCardBalanceQueryParams = QueryParams<{
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-gift-card-balance
  */
-export async function getGiftCardBalance(
+async function getGiftCardBalance(
   args: RequestArgsGet<GetGiftCardBalanceQueryParams>,
 ): Promise<GiftCardBalance> {
   return await MINDBODY.get('/sale/giftcardbalance', args);
@@ -114,7 +114,7 @@ export type GetGiftCardsQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-gift-cards
  */
-export async function getGiftCards(
+async function getGiftCards(
   args: RequestArgsGet<GetGiftCardsQueryParams>,
 ): Promise<GiftCards> {
   return await MINDBODY.get('/sale/giftcards', args);
@@ -136,7 +136,7 @@ export type GetPackagesQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-packages
  */
-export async function getPackages(
+async function getPackages(
   args: RequestArgsGetOptionalParams<GetPackagesQueryParams>,
 ): Promise<GiftCards> {
   return await MINDBODY.get('/sale/packages', args);
@@ -154,7 +154,7 @@ export type GetProductsQueryParams = QueryParams<{
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-products
  */
-export async function getProducts(
+async function getProducts(
   args: RequestArgsGetOptionalParams<GetProductsQueryParams>,
 ): Promise<Products> {
   return await MINDBODY.get('/sale/products', args);
@@ -169,7 +169,7 @@ export type GetProductsInventoryQueryParams = QueryParams<{
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-products-inventory
  */
-export async function getProductsInventory(
+async function getProductsInventory(
   args: RequestArgsGetOptionalParams<GetProductsInventoryQueryParams>,
 ): Promise<ProductsInventory> {
   return await MINDBODY.get('/sale/productsinventory', args);
@@ -185,7 +185,7 @@ export type GetSalesQueryParams = QueryParams<{
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-sales
  */
-export async function getSales(
+async function getSales(
   args: RequestArgsGetOptionalParams<GetSalesQueryParams>,
 ): Promise<Sales> {
   return await MINDBODY.get('/sale/sales', args);
@@ -208,7 +208,7 @@ export type GetServicesQueryParams = QueryParams<{
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-services
  */
-export async function getServices(
+async function getServices(
   args: RequestArgsGetOptionalParams<GetServicesQueryParams>,
 ): Promise<Services> {
   return await MINDBODY.get('/sale/services', args);
@@ -227,7 +227,7 @@ export type GetTransactionsQueryParams = QueryParams<{
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#transaction
  */
-export async function getTransactions(
+async function getTransactions(
   args: RequestArgsGetOptionalParams<GetTransactionsQueryParams>,
 ): Promise<Transactions> {
   return await MINDBODY.get('/sale/transactions', args);
@@ -316,7 +316,7 @@ export type CheckoutShoppingCartPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#checkout-shopping-cart
  */
-export async function checkoutShoppingCart(
+async function checkoutShoppingCart(
   args: RequestArgsPost<CheckoutShoppingCartPayload>,
 ): Promise<ShoppingCart> {
   return await MINDBODY.post('/sale/checkoutshoppingcart', args);
@@ -353,7 +353,7 @@ export type PurchaseAccountCreditPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#purchase-account-credit
  */
-export async function purchaseAccountCredit(
+async function purchaseAccountCredit(
   args: RequestArgsPost<PurchaseAccountCreditPayload>,
 ): Promise<PurchaseAccountCredit> {
   return await MINDBODY.post('/sale/purchaseaccountcredit', args);
@@ -387,7 +387,7 @@ export type PurchaseContractPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#purchase-contract
  */
-export async function purchaseContract(
+async function purchaseContract(
   args: RequestArgsPost<PurchaseContractPayload>,
 ): Promise<PurchaseContract> {
   return await MINDBODY.post('/sale/purchasecontract', args);
@@ -435,7 +435,7 @@ export type PurchaseGiftCardPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#purchase-gift-card
  */
-export async function purchaseGiftCard(
+async function purchaseGiftCard(
   args: RequestArgsPost<PurchaseGiftCardPayload>,
 ): Promise<PurchaseContract> {
   return await MINDBODY.post('/sale/purchasegiftcard', args);
@@ -453,7 +453,7 @@ export type UpdateProductPricePayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#update-product-price
  */
-export async function updateProductPrice(
+async function updateProductPrice(
   args: RequestArgsPost<UpdateProductPricePayload>,
 ): Promise<{ Product: Product }> {
   return await MINDBODY.post('/sale/updateproductprice', args);
@@ -471,7 +471,7 @@ export type ReturnSalePayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#post-return-sale
  */
-export async function returnSale(
+async function returnSale(
   args: RequestArgsPost<ReturnSalePayload>,
 ): Promise<ReturnSale> {
   return await MINDBODY.post('/sale/returnsale', args);
@@ -487,7 +487,7 @@ export type InitializeCreditCardEntryPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#initialize-credit-card-entry
  */
-export async function initializeCreditCard(
+async function initializeCreditCard(
   args: RequestArgsPost<InitializeCreditCardEntryPayload>,
 ): Promise<{ CallbackUrl: string }> {
   return await MINDBODY.post('/sale/initializecreditcardentry', args);
@@ -509,7 +509,7 @@ export type UpdateProductsPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#update-products
  */
-export async function updateProducts(
+async function updateProducts(
   args: RequestArgsPost<InitializeCreditCardEntryPayload>,
 ): Promise<Products> {
   return await MINDBODY.put('/sale/products', args);
@@ -527,7 +527,7 @@ export type UpdateServicesPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#update-services
  */
-export async function updateServices(
+async function updateServices(
   args: RequestArgsPost<UpdateServicesPayload>,
 ): Promise<Services> {
   return await MINDBODY.put('/sale/services', args);
@@ -543,8 +543,32 @@ export type UpdateSaleDatePayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#update-sale-date
  */
-export async function updateSaleDate(
+async function updateSaleDate(
   args: RequestArgsPost<UpdateSaleDatePayload>,
 ): Promise<Services> {
   return await MINDBODY.put('/sale/updatesaledate', args);
 }
+
+export default {
+  getAcceptedCardsTypes,
+  getContracts,
+  getCustomPaymentMethods,
+  getGiftCardBalance,
+  getGiftCards,
+  getPackages,
+  getProducts,
+  getProductsInventory,
+  getSales,
+  getServices,
+  getTransactions,
+  checkoutShoppingCart,
+  initializeCreditCard,
+  purchaseAccountCredit,
+  purchaseContract,
+  purchaseGiftCard,
+  returnSale,
+  updateProducts,
+  updateProductPrice,
+  updateServices,
+  updateSaleDate,
+};
