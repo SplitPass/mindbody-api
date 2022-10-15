@@ -1,4 +1,5 @@
 /dist
 /node_modules
+/example
 .eslintrc.js
 rollup.config.ts

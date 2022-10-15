@@ -1,7 +1,7 @@
 import type { AxiosInstance } from 'axios';
 import type { ErrorResponse, Headers, TokenResponse } from '$http/types';
 
-import { default as axios, AxiosError } from 'axios';
+import axios, { AxiosError } from 'axios';
 import Config from '$Config';
 import { MindbodyError } from '$http/MindbodyError';
 import * as TokenCache from '$http/TokenCache';
