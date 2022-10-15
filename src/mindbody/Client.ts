@@ -279,7 +279,7 @@ export type GetClientsQueryParams = QueryParams<{
   UniqueIds?: number[];
   IsProspect?: boolean;
   LastModifiedDate?: string;
-  IncludeActive?: boolean;
+  IncludeInactive?: boolean;
 }>;
 
 /**

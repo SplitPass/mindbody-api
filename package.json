@@ -57,6 +57,8 @@
   "scripts": {
     "build": "pnpm rollup -c --configPlugin @rollup/plugin-typescript",
     "example": "pnpm ts-node --esm examples/example.ts",
-    "lint": "pnpm tsc --noEmit --skipLibCheck & eslint \"./src/**/*.ts\""
+    "lint": "pnpm tsc --noEmit --skipLibCheck & eslint \"./src/**/*.ts\"",
+    "version": "pnpm build && git add .",
+    "postversion": "git push && git push --tags && rm -rf build/temp"
   }
 }
