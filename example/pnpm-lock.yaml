@@ -1,7 +1,0 @@
-lockfileVersion: 5.4
-
-specifiers:
-  mindbody-api-v6: link:..
-
-dependencies:
-  mindbody-api-v6: link:..
