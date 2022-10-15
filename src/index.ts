@@ -6,6 +6,7 @@ import Class from '$mindbody/Class';
 import Client from '$mindbody/Client';
 import Config from '$Config';
 import Enrollment from '$mindbody/Enrollment';
+import MindbodyError from '$http/MindbodyError';
 import Payroll from '$mindbody/Payroll';
 import Sale from '$mindbody/Sale';
 import Site from '$mindbody/Site';
@@ -17,6 +18,7 @@ const exports = {
   Client,
   Config,
   Enrollment,
+  MindbodyError,
   Payroll,
   Sale,
   Site,
@@ -31,6 +33,7 @@ export {
   Client,
   Config,
   Enrollment,
+  MindbodyError,
   Payroll,
   Sale,
   Site,
