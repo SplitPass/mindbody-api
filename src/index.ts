@@ -1,12 +1,26 @@
-export * from '$Config';
-export * as Appointment from '$mindbody/Appointment';
-export * as Class from '$mindbody/Class';
-export * as Client from '$mindbody/Client';
-export * as Enrollment from '$mindbody/Enrollment';
-export * as Payroll from '$mindbody/Payroll';
-export * as Sale from '$mindbody/Sale';
-export * as Site from '$mindbody/Site';
-export * as Staff from '$mindbody/Staff';
+import type * as Http from '$http/types';
+import type * as MBType from '$mindbody/types';
 
-export * from '$http/types/index';
-export * as MBType from '$mindbody/types';
+export type { MBType, Http };
+
+import Appointment from '$mindbody/Appointment';
+import Class from '$mindbody/Class';
+import Client from '$mindbody/Client';
+import Config from '$Config';
+import Enrollment from '$mindbody/Enrollment';
+import Payroll from '$mindbody/Payroll';
+import Sale from '$mindbody/Sale';
+import Site from '$mindbody/Site';
+import Staff from '$mindbody/Staff';
+
+export default {
+  Appointment,
+  Class,
+  Client,
+  Config,
+  Enrollment,
+  Payroll,
+  Sale,
+  Site,
+  Staff,
+};

@@ -45,7 +45,7 @@ export type GetStaffQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-staff
  */
-export async function getStaff(
+async function getStaff(
   args: RequestArgsGetOptionalParams<GetStaffQueryParams>,
 ): Promise<StaffMembers> {
   return await MINDBODY.get('/staff/staff', args);
@@ -58,7 +58,7 @@ export type GetStaffPermissionsQueryParams = QueryParams<{
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-staff-permissions
  */
-export async function getStaffPermissions(
+async function getStaffPermissions(
   args: RequestArgsGet<GetStaffPermissionsQueryParams>,
 ): Promise<Permissions> {
   return await MINDBODY.get('/staff/staffpermissions', args);
@@ -73,7 +73,7 @@ export type StaffImageURLQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-staff-image-url
  */
-export async function getStaffImageURL(
+async function getStaffImageURL(
   args: RequestArgsGet<StaffImageURLQueryParams>,
 ): Promise<StaffImageURL> {
   return await MINDBODY.get('/staff/imageurl', args);
@@ -91,7 +91,7 @@ export type StaffSessionTypesQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-staff-session-types
  */
-export async function getStaffSessionTypes(
+async function getStaffSessionTypes(
   args: RequestArgsGet<StaffSessionTypesQueryParams>,
 ): Promise<StaffSessionTypes> {
   return await MINDBODY.get('/staff/sessiontypes', args);
@@ -107,7 +107,7 @@ export type SalesRepsQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-sales-reps
  */
-export async function getSalesReps(
+async function getSalesReps(
   args: RequestArgsGet<SalesRepsQueryParams>,
 ): Promise<SalesReps> {
   return await MINDBODY.get('/staff/salesreps', args);
@@ -128,7 +128,7 @@ export type AddStaffPayload = MarkRequired<
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#add-staff
  */
-export async function addStaff(
+async function addStaff(
   args: RequestArgsPost<AddStaffPayload>,
 ): Promise<{ Staff: Staff }> {
   return await MINDBODY.post('/staff/addstaff', args);
@@ -164,7 +164,7 @@ export type AddStaffAvailabilityPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#add-staff-availability
  */
-export async function addStaffAvailability(
+async function addStaffAvailability(
   args: RequestArgsPost<AddStaffAvailabilityPayload>,
 ): Promise<void> {
   await MINDBODY.post('/staff/staffavailability', args);
@@ -188,7 +188,7 @@ export type AssignStaffSessionTypePayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#assign-staff-session-type
  */
-export async function assignStaffSessionType(
+async function assignStaffSessionType(
   args: RequestArgsPost<AssignStaffSessionTypePayload>,
 ): Promise<AddStaffSessionType> {
   return await MINDBODY.post('/staff/assignsessiontype', args);
@@ -202,7 +202,7 @@ export type UpdateStaffPayload = MarkRequired<Partial<Staff>, 'Id'>;
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#update-staff
  */
-export async function updateStaff(
+async function updateStaff(
   args: RequestArgsPost<UpdateStaffPayload>,
 ): Promise<AddStaffSessionType> {
   return await MINDBODY.post('/staff/updatestaff', args);
@@ -218,8 +218,21 @@ export type UpdateStaffPermissionsPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#update-staff-permissions
  */
-export async function updateStaffPermissions(
+async function updateStaffPermissions(
   args: RequestArgsPost<UpdateStaffPermissionsPayload>,
 ): Promise<Permissions> {
   return await MINDBODY.post('/staff/updatestaffpermissions', args);
 }
+
+export default {
+  getSalesReps,
+  getStaff,
+  getStaffImageURL,
+  getStaffPermissions,
+  getStaffSessionTypes,
+  addStaff,
+  addStaffAvailability,
+  assignStaffSessionType,
+  updateStaff,
+  updateStaffPermissions,
+};

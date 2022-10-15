@@ -41,7 +41,7 @@ export type GetEnrollmentsQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-enrollments
  */
-export async function getEnrollments(
+async function getEnrollments(
   args: RequestArgsGetOptionalParams<GetEnrollmentsQueryParams>,
 ): Promise<Enrollments> {
   return await MINDBODY.get('/enrollment/enrollments', args);
@@ -65,8 +65,13 @@ export type AddClientToEnrollmentPayload = {
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#add-client-to-enrollment
  */
-export async function addClientToEnrollment(
+async function addClientToEnrollment(
   args: RequestArgsPost<AddClientToEnrollmentPayload>,
 ): Promise<AddClientToEnrollment> {
   return await MINDBODY.post('/enrollment/addclienttoenrollment', args);
 }
+
+export default {
+  addClientToEnrollment,
+  getEnrollments,
+};

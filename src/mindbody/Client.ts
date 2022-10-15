@@ -62,7 +62,7 @@ export type GetActiveClientMembershipsQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-active-client-memberships
  */
-export async function getActiveClientMemberships(
+async function getActiveClientMemberships(
   args: RequestArgsGet<GetActiveClientMembershipsQueryParams>,
 ): Promise<ActiveClientMemberships> {
   return await MINDBODY.get('/client/activeclientmemberships', args);
@@ -84,7 +84,7 @@ export type GetActiveClientsMembershipsQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-active-clients-memberships
  */
-export async function getActiveClientsMemberships(
+async function getActiveClientsMemberships(
   args: RequestArgsGet<GetActiveClientsMembershipsQueryParams>,
 ): Promise<ClientsMemberships> {
   return await MINDBODY.get('/client/activeclientsmemberships', args);
@@ -99,7 +99,7 @@ export type GetClientAccountBalancesQueryParams = QueryParams<{
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-client-account-balances
  */
-export async function getClientAccountBalances(
+async function getClientAccountBalances(
   args: RequestArgsGet<GetClientAccountBalancesQueryParams>,
 ): Promise<Clients> {
   return await MINDBODY.get('/client/clientaccountbalances', args);
@@ -122,7 +122,7 @@ export type GetContactLogsQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-contact-logs
  */
-export async function getContactLogs(
+async function getContactLogs(
   args: RequestArgsGet<GetContactLogsQueryParams>,
 ): Promise<Clients> {
   return await MINDBODY.get('/client/contactlogs', args);
@@ -137,7 +137,7 @@ export type GetClientContractsQueryParams = QueryParams<{
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-client-contracts
  */
-export async function getClientContracts(
+async function getClientContracts(
   args: RequestArgsGet<GetClientContractsQueryParams>,
 ): Promise<ClientContracts> {
   return await MINDBODY.get('/client/clientcontracts', args);
@@ -155,7 +155,7 @@ export type ClientDirectDebitInfoQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-client-ddinfo
  */
-export async function getClientDirectDebitInfo(
+async function getClientDirectDebitInfo(
   args: RequestArgsGet<ClientDirectDebitInfoQueryParams>,
 ): Promise<DirectDebitInfo> {
   return await MINDBODY.get('/client/clientdirectdebitinfo', args);
@@ -187,7 +187,7 @@ export type ClientDuplicatesQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-client-duplicates
  */
-export async function getClientDuplicates(
+async function getClientDuplicates(
   args: RequestArgsGet<ClientDuplicatesQueryParams>,
 ): Promise<ClientDuplicates> {
   return await MINDBODY.get('/client/clientduplicates', args);
@@ -205,7 +205,7 @@ export type ClientFormulaNotesQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#client-formula-notes
  */
-export async function getClientFormulaNotes(
+async function getClientFormulaNotes(
   args: RequestArgsGet<ClientFormulaNotesQueryParams>,
 ): Promise<FormulaNotes> {
   return await MINDBODY.get('/client/clientformulanotes', args);
@@ -223,7 +223,7 @@ export type ClientIndexesQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-client-indexes
  */
-export async function getClientIndexes(
+async function getClientIndexes(
   args: RequestArgsGet<ClientIndexesQueryParams>,
 ): Promise<ClientIndexes> {
   return await MINDBODY.get('/client/clientindexes', args);
@@ -241,7 +241,7 @@ export type ClientPurchasesQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-client-purchases
  */
-export async function getClientPurchases(
+async function getClientPurchases(
   args: RequestArgsGet<ClientPurchasesQueryParams>,
 ): Promise<ClientPurchases> {
   return await MINDBODY.get('/client/clientpurchases', args);
@@ -258,7 +258,7 @@ export type ClientReferralTypesQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-client-referral-types
  */
-export async function getClientReferralTypes(
+async function getClientReferralTypes(
   args: RequestArgsGetOptionalParams<ClientReferralTypesQueryParams>,
 ): Promise<ReferralTypes> {
   return await MINDBODY.get('/client/clientreferraltypes', args);
@@ -273,7 +273,7 @@ export type ClientRewardsQueryParams = QueryParams<{
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-client-rewards
  */
-export async function getClientRewards(
+async function getClientRewards(
   args: RequestArgsGet<ClientRewardsQueryParams>,
 ): Promise<ClientRewards> {
   return await MINDBODY.get('/client/clientrewards', args);
@@ -291,7 +291,7 @@ export type GetClientsQueryParams = QueryParams<{
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-clients
  */
-export async function getClients(
+async function getClients(
   args: RequestArgsGetOptionalParams<GetClientsQueryParams>,
 ): Promise<Clients> {
   return await MINDBODY.get('/client/clients', args);
@@ -312,7 +312,7 @@ export type GetClientCompleteInfoQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-clientcompleteinfo
  */
-export async function getClientCompleteInfo(
+async function getClientCompleteInfo(
   args: RequestArgsGet<GetClientCompleteInfoQueryParams>,
 ): Promise<ClientCompleteInfo> {
   return await MINDBODY.get('/client/clientcompleteinfo', args);
@@ -336,7 +336,7 @@ export type GetClientServicesQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-client-services
  */
-export async function getClientServices(
+async function getClientServices(
   args: RequestArgsGet<GetClientServicesQueryParams>,
 ): Promise<ClientServices> {
   return await MINDBODY.get('/client/clientservices', args);
@@ -356,7 +356,7 @@ export type GetClientVisitsQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-client-visits
  */
-export async function getClientVisits(
+async function getClientVisits(
   args: RequestArgsGet<GetClientVisitsQueryParams>,
 ): Promise<ClientVisits> {
   return await MINDBODY.get('/client/clientvisits', args);
@@ -375,7 +375,7 @@ export type GetClientSchedulesQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-client-schedule
  */
-export async function getClientSchedule(
+async function getClientSchedule(
   args: RequestArgsGet<GetClientSchedulesQueryParams>,
 ): Promise<ClientVisits> {
   return await MINDBODY.get('/client/clientschedule', args);
@@ -399,7 +399,7 @@ export type CrossRegionalClientAssociationsQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-cross-regional-client-associations
  */
-export async function getCrossRegionalClientAssociations(
+async function getCrossRegionalClientAssociations(
   args: RequestArgsGet<CrossRegionalClientAssociationsQueryParams>,
 ): Promise<CrossRegionalClientAssociations> {
   return await MINDBODY.get('/client/crossregionalclientassociations', args);
@@ -408,7 +408,7 @@ export async function getCrossRegionalClientAssociations(
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-custom-client-fields
  */
-export async function getCustomClientFields(
+async function getCustomClientFields(
   args: RequestArgsGetOptionalParams<never>,
 ): Promise<CustomClientFields> {
   return await MINDBODY.get('/client/customclientfields', args);
@@ -417,7 +417,7 @@ export async function getCustomClientFields(
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-required-client-fields
  */
-export async function getRequiredClientFields(
+async function getRequiredClientFields(
   args: RequestArgsGetOptionalParams<never>,
 ): Promise<RequiredClientFields> {
   return await MINDBODY.get('/client/requiredclientfields', args);
@@ -430,7 +430,7 @@ export type ContactLogTypesQueryParams = QueryParams<{
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-contactlogtypes
  */
-export async function getContactLogTypes(
+async function getContactLogTypes(
   args: RequestArgsGetOptionalParams<ContactLogTypesQueryParams>,
 ): Promise<ContactLogs> {
   return await MINDBODY.get('/client/contactlogtypes', args);
@@ -459,9 +459,7 @@ export type AddArivalPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#add-arrival
  */
-export async function addArival(
-  args: RequestArgsPost<AddArivalPayload>,
-): Promise<{
+async function addArival(args: RequestArgsPost<AddArivalPayload>): Promise<{
   ArrivalAdded: boolean;
   ClientService: ClientService;
 }> {
@@ -549,7 +547,7 @@ export type AddClientPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#add-client
  */
-export async function addClient(
+async function addClient(
   args: RequestArgsPost<AddClientPayload>,
 ): Promise<{ Client: Client }> {
   return await MINDBODY.post('/client/addclient', args);
@@ -565,7 +563,7 @@ export type AddClientDirectDebitInfoPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#add-client-ddinfo
  */
-export async function addClientDirectDebitInfo(
+async function addClientDirectDebitInfo(
   args: RequestArgsPost<AddClientDirectDebitInfoPayload>,
 ): Promise<{ ClientId: string } & DirectDebitInfo> {
   return await MINDBODY.post('/client/addclientdirectdebitinfo', args);
@@ -584,7 +582,7 @@ export type AddClientFormulaNotePayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#add-client-formula-note
  */
-export async function addClientFormulaNote(
+async function addClientFormulaNote(
   args: RequestArgsPost<AddClientFormulaNotePayload>,
 ): Promise<{
   Id: string;
@@ -616,7 +614,7 @@ export type AddContactLogPayload = {
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#add-contact-log
  */
-export async function addContactLog(
+async function addContactLog(
   args: RequestArgsPost<AddContactLogPayload>,
 ): Promise<{ AddedContactLog: AddContactLog }> {
   return await MINDBODY.post('/client/addcontactlog', args);
@@ -637,7 +635,7 @@ export type SendAutoEmailPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#send-auto-email
  */
-export async function sendAutoEmail(
+async function sendAutoEmail(
   args: RequestArgsPost<SendAutoEmailPayload>,
 ): Promise<void> {
   await MINDBODY.post('/client/sendautoemail', args);
@@ -654,7 +652,7 @@ export type SendPasswordResetEmailPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#send-password-reset-email
  */
-export async function sendPasswordResetEmail(
+async function sendPasswordResetEmail(
   args: RequestArgsPost<SendPasswordResetEmailPayload>,
 ): Promise<void> {
   await MINDBODY.post('/client/sendpasswordresetemail', args);
@@ -674,7 +672,7 @@ export type TerminateContractPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#send-password-reset-email
  */
-export async function terminateContract(
+async function terminateContract(
   args: RequestArgsPost<TerminateContractPayload>,
 ): Promise<{ Message: string }> {
   return await MINDBODY.post('/client/terminatecontract', args);
@@ -734,7 +732,7 @@ export type UpdateClientPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#update-client
  */
-export async function updateClient(
+async function updateClient(
   args: RequestArgsPost<UpdateClientPayload>,
 ): Promise<{ Client: Client }> {
   return await MINDBODY.post('/client/updateclient', args);
@@ -755,7 +753,7 @@ export type UpdateClientRewardsPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#update-client-rewards
  */
-export async function updateClientRewards(
+async function updateClientRewards(
   args: RequestArgsPost<UpdateClientRewardsPayload>,
 ): Promise<UpdatedClientRewards> {
   return await MINDBODY.post('/client/clientrewards', args);
@@ -777,7 +775,7 @@ export type UpdateClientServicePayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#update-client-service
  */
-export async function updateClientService(
+async function updateClientService(
   args: RequestArgsPost<UpdateClientServicePayload>,
 ): Promise<{ ClientService: ClientService }> {
   return await MINDBODY.post('/client/updateclientservice', args);
@@ -797,7 +795,7 @@ export type UpdateClientVisitPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#update-client-visit
  */
-export async function updateClientVisit(
+async function updateClientVisit(
   args: RequestArgsPost<UpdateClientVisitPayload>,
 ): Promise<{ Visit: Visit }> {
   return await MINDBODY.post('/client/updateclientvisit', args);
@@ -825,7 +823,7 @@ export type UpdateContactLogPayload = {
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#update-contact-log
  */
-export async function updateContactLog(
+async function updateContactLog(
   args: RequestArgsPost<UpdateContactLogPayload>,
 ): Promise<{ UpdatedContactLog: UpdatedContactLog }> {
   return await MINDBODY.post('/client/updatecontactlog', args);
@@ -861,7 +859,7 @@ export type UploadClientDocumentPayload = {
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#upload-client-document
  */
-export async function uploadClientDocument(
+async function uploadClientDocument(
   args: RequestArgsPost<UploadClientDocumentPayload>,
 ): Promise<{ FileSize: number; FileName: string }> {
   return await MINDBODY.post('/client/uploadclientdocument', args);
@@ -883,7 +881,7 @@ export type UploadClientPhotoPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#upload-client-photo
  */
-export async function uploadClientPhoto(
+async function uploadClientPhoto(
   args: RequestArgsPost<UploadClientPhotoPayload>,
 ): Promise<{ ClientId: number; PhotoUrl: string }> {
   return await MINDBODY.post('/client/uploadclientphoto', args);
@@ -903,7 +901,7 @@ export type DeleteClientDirectDebitInfoQueryParams = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#delete-client-ddinfo
  */
-export async function deleteClientDirectDebitInfoQ(
+async function deleteClientDirectDebitInfoQ(
   args: RequestArgsDelete<DeleteClientDirectDebitInfoQueryParams>,
 ): Promise<boolean> {
   return await MINDBODY.delete('/client/clientdirectdebitinfo', args);
@@ -921,7 +919,7 @@ export type DeleteClientFormulaNoteQueryParams = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#delete-client-formula-note
  */
-export async function deleteClientFormulaNote(
+async function deleteClientFormulaNote(
   args: RequestArgsDelete<DeleteClientFormulaNoteQueryParams>,
 ): Promise<boolean> {
   return await MINDBODY.delete('/client/clientformulanote', args);
@@ -938,8 +936,50 @@ export type DeleteContactLogQueryParams = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#delete-contactlog
  */
-export async function deleteContactLog(
+async function deleteContactLog(
   args: RequestArgsDelete<DeleteContactLogQueryParams>,
 ): Promise<boolean> {
   return await MINDBODY.delete('/client/deletecontactlog', args);
 }
+
+export default {
+  getActiveClientMemberships,
+  getActiveClientsMemberships,
+  getClientAccountBalances,
+  getClientCompleteInfo,
+  getClientContracts,
+  getClientDirectDebitInfo,
+  getClientDuplicates,
+  getClientFormulaNotes,
+  getClientIndexes,
+  getClientSchedule,
+  getClientReferralTypes,
+  getClientPurchases,
+  getClientRewards,
+  getClients,
+  getClientServices,
+  getClientVisits,
+  getCustomClientFields,
+  getCrossRegionalClientAssociations,
+  getRequiredClientFields,
+  getContactLogs,
+  getContactLogTypes,
+  addArival,
+  addClient,
+  addClientDirectDebitInfo,
+  addClientFormulaNote,
+  addContactLog,
+  sendAutoEmail,
+  sendPasswordResetEmail,
+  updateClient,
+  updateClientRewards,
+  updateClientService,
+  updateClientVisit,
+  updateContactLog,
+  uploadClientDocument,
+  uploadClientPhoto,
+  deleteClientDirectDebitInfoQ,
+  deleteClientFormulaNote,
+  deleteContactLog,
+  terminateContract,
+};

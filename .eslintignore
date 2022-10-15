@@ -1,5 +1,4 @@
 /dist
 /node_modules
-
 .eslintrc.js
-tsup.config.ts
+rollup.config.ts

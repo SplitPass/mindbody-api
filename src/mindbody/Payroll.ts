@@ -32,7 +32,7 @@ export type GetCommissionsQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-commissions
  */
-export async function getCommissions(
+async function getCommissions(
   args: RequestArgsGetOptionalParams<GetCommissionsQueryParams>,
 ): Promise<Commissions> {
   return await MINDBODY.get('/payroll/commissions', args);
@@ -68,7 +68,7 @@ export type ScheduledServiceEarningsQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-scheduled-service-earnings
  */
-export async function getScheduledServiceEarnings(
+async function getScheduledServiceEarnings(
   args: RequestArgsGetOptionalParams<ScheduledServiceEarningsQueryParams>,
 ): Promise<ScheduledServiceEarnings> {
   return await MINDBODY.get('/payroll/scheduledserviceearnings', args);
@@ -86,7 +86,7 @@ export type GetTimeCardsQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-time-cards
  */
-export async function getTimeCards(
+async function getTimeCards(
   args: RequestArgsGetOptionalParams<GetTimeCardsQueryParams>,
 ): Promise<Timecards> {
   return await MINDBODY.get('/payroll/timecards', args);
@@ -110,8 +110,15 @@ export type GetTipsQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-tips
  */
-export async function getTips(
+async function getTips(
   args: RequestArgsGetOptionalParams<GetTipsQueryParams>,
 ): Promise<Tips> {
   return await MINDBODY.get('/payroll/tips', args);
 }
+
+export default {
+  getCommissions,
+  getScheduledServiceEarnings,
+  getTimeCards,
+  getTips,
+};

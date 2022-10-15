@@ -43,7 +43,7 @@ export type GetActiveSessionTimesQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#appointment-endpoint
  */
-export async function getActiveSessionTimes(
+async function getActiveSessionTimes(
   args: RequestArgsGetOptionalParams<GetActiveSessionTimesQueryParams>,
 ): Promise<{ ActiveSessionTimes: string[] }> {
   return await MINDBODY.get('/appointment/activesessiontimes', args);
@@ -58,7 +58,7 @@ export type GetAppointmentAddOnsQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-appointment-add-ons
  */
-export async function getAppointmentAddOns(
+async function getAppointmentAddOns(
   args: RequestArgsGetOptionalParams<GetAppointmentAddOnsQueryParams>,
 ): Promise<AddOns> {
   return await MINDBODY.get('/appointment/addons', args);
@@ -80,7 +80,7 @@ export type GetAppointmentAvailableDatesQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-appointment-available-dates
  */
-export async function getAppointmentAvailableDates(
+async function getAppointmentAvailableDates(
   args: RequestArgsGet<GetAppointmentAvailableDatesQueryParams>,
 ): Promise<{ AvailableDates: string[] }> {
   return await MINDBODY.get('/appointment/availabledates', args);
@@ -89,7 +89,7 @@ export async function getAppointmentAvailableDates(
 /**
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-appointment-options
  */
-export async function getAppointmentOptions(
+async function getAppointmentOptions(
   args: RequestArgsGetOptionalParams<never>,
 ): Promise<AppointmentOptions> {
   return await MINDBODY.get('/appointment/appointmentoptions', args);
@@ -112,7 +112,7 @@ export type GetBookableItemsQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-bookable-items
  */
-export async function getBookableItems(
+async function getBookableItems(
   args: RequestArgsGet<GetBookableItemsQueryParams>,
 ): Promise<Availabilities> {
   return await MINDBODY.get('/appointment/bookableitems', args);
@@ -133,7 +133,7 @@ export type GetScheduleItemsQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-schedule-items
  */
-export async function getScheduleItems(
+async function getScheduleItems(
   args: RequestArgsGetOptionalParams<GetScheduleItemsQueryParams>,
 ): Promise<{ StaffMembers: Staff[] }> {
   return await MINDBODY.get('/appointment/scheduleitems', args);
@@ -153,7 +153,7 @@ export type GetStaffAppointmentsQueryParams = QueryParams<{
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#get-staff-appointments
  */
-export async function getStaffAppointments(
+async function getStaffAppointments(
   args: RequestArgsGetOptionalParams<GetStaffAppointmentsQueryParams>,
 ): Promise<Appointments> {
   return await MINDBODY.get('/appointment/staffappointments', args);
@@ -190,7 +190,7 @@ export type AddAppointmentPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#add-appointment
  */
-export async function addAppointment(
+async function addAppointment(
   args: RequestArgsPost<AddAppointmentPayload>,
 ): Promise<Appointments> {
   return await MINDBODY.post('/appointment/addappointment', args);
@@ -211,7 +211,7 @@ export type AddAppointmentAddOnPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#add-appointment-addon
  */
-export async function addAppointmentAddOn(
+async function addAppointmentAddOn(
   args: RequestArgsPost<AddAppointmentAddOnPayload>,
 ): Promise<{
   AppointmentId: number;
@@ -242,7 +242,7 @@ export type UpdateAppointmentPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#update-appointment
  */
-export async function updateAppointment(
+async function updateAppointment(
   args: RequestArgsPost<UpdateAppointmentPayload>,
 ): Promise<{ Appointment: Appointment }> {
   return await MINDBODY.post('/appointment/updateappointment', args);
@@ -274,7 +274,7 @@ export type AddAvailabilitiesPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#add-availabilities
  */
-export async function addAvailabilities(
+async function addAvailabilities(
   args: RequestArgsPost<AddAvailabilitiesPayload>,
 ): Promise<{ StaffMembers: Staff[] }> {
   return await MINDBODY.post('/appointment/availabilities', args);
@@ -309,7 +309,7 @@ export type UpdateAvailabilitiesPayload = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#add-availabilities
  */
-export async function updateAvailabilities(
+async function updateAvailabilities(
   args: RequestArgsPost<UpdateAvailabilitiesPayload>,
 ): Promise<{ StaffMembers: Staff[] }> {
   return await MINDBODY.put('/appointment/availabilities', args);
@@ -330,7 +330,7 @@ export type DeleteAppointmentAddOnQueryParams = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#delete-appointment-addon
  */
-export async function deleteAppointmentAddOn(
+async function deleteAppointmentAddOn(
   args: RequestArgsDelete<DeleteAppointmentAddOnQueryParams>,
 ): Promise<void> {
   await MINDBODY.delete('/appointment/deleteappointmentaddon', args);
@@ -348,7 +348,7 @@ export type DeleteAvailabilityQueryParams = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#delete-availability
  */
-export async function deleteAvailability(
+async function deleteAvailability(
   args: RequestArgsDelete<DeleteAvailabilityQueryParams>,
 ): Promise<void> {
   await MINDBODY.delete('/appointment/availability', args);
@@ -365,8 +365,26 @@ export type RemoveFromAppointmentWaitlistQueryParams = {
  *
  * https://developers.mindbodyonline.com/PublicDocumentation/V6#remove-from-appointment-waitlist
  */
-export async function removeFromAppointmentWaitlist(
+async function removeFromAppointmentWaitlist(
   args: RequestArgsDelete<RemoveFromAppointmentWaitlistQueryParams>,
 ): Promise<void> {
   await MINDBODY.delete('/appointment/removefromappointmentwaitlist', args);
 }
+
+export default {
+  getActiveSessionTimes,
+  getAppointmentAddOns,
+  getAppointmentAvailableDates,
+  getAppointmentOptions,
+  getBookableItems,
+  getStaffAppointments,
+  getScheduleItems,
+  addAppointment,
+  addAppointmentAddOn,
+  addAvailabilities,
+  updateAppointment,
+  updateAvailabilities,
+  deleteAvailability,
+  deleteAppointmentAddOn,
+  removeFromAppointmentWaitlist,
+};

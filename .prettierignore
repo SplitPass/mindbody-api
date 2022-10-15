@@ -1,5 +1,3 @@
 /dist
 /node_moudles
-
 .eslintrc.js
-tsup.config.ts

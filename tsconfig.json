@@ -5,14 +5,12 @@
     "allowUnusedLabels": false,
     "alwaysStrict": true,
     "baseUrl": "./src",
-    "declaration": true,
     "esModuleInterop": true,
     "importsNotUsedAsValues": "error",
     "isolatedModules": true,
     "lib": ["ES2019"],
-    "module": "commonjs",
+    "module": "ESNext",
     "moduleResolution": "node",
-    "outDir": "./dist",
     "paths": {
       "$http/*": ["http/*"],
       "$mindbody/*": ["mindbody/*"],
@@ -23,6 +21,6 @@
     "target": "ES2019",
     "types": ["node"]
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "rollup.config.ts"],
   "exclude": ["node_modules"]
 }
