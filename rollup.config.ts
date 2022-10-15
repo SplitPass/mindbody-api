@@ -8,7 +8,7 @@ export default [
     external: ['axios'],
     output: [
       {
-        file: 'dist/esm/index.js',
+        file: 'dist/esm/index.mjs',
         format: 'esm',
         generatedCode: {
           constBindings: true,
@@ -16,7 +16,7 @@ export default [
         exports: 'named',
       },
       {
-        file: 'dist/cjs/index.mjs',
+        file: 'dist/cjs/index.cjs',
         format: 'cjs',
         exports: 'named',
       },
