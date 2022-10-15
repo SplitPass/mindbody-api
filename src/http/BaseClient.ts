@@ -3,7 +3,7 @@ import type { ErrorResponse, Headers, TokenResponse } from '$http/types';
 
 import axios, { AxiosError } from 'axios';
 import Config from '$Config';
-import { MindbodyError } from '$http/MindbodyError';
+import MindbodyError from '$http/MindbodyError';
 import * as TokenCache from '$http/TokenCache';
 
 const BASE_URL = 'https://api.mindbodyonline.com/public/v6';
