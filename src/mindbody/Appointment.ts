@@ -173,7 +173,7 @@ export type AddAppointmentPayload = {
   ApplyPayment?: boolean;
   Duration?: number;
   Execute?: string;
-  GenderPreference: 'None' | 'Female' | 'Male';
+  GenderPreference?: 'None' | 'Female' | 'Male';
   Notes?: string;
   ProviderId?: string;
   ResourceIds?: number[];
@@ -192,7 +192,7 @@ export type AddAppointmentPayload = {
  */
 async function addAppointment(
   args: RequestArgsPost<AddAppointmentPayload>,
-): Promise<Appointments> {
+): Promise<{ Appointment: Appointment }> {
   return await MINDBODY.post('/appointment/addappointment', args);
 }
 
