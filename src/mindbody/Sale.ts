@@ -267,7 +267,7 @@ export type CheckoutShoppingCartPayload = {
         | PackageItemMetadata
         | TipItemMetadata;
     };
-    AppointmentBookingRequest?: {
+    AppointmentBookingRequests?: {
       StaffId: number;
       LocationId: number;
       SessionTypeId: number;
