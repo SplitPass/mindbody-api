@@ -1,4 +1,5 @@
 import type {
+  PaginatedResponse,
   QueryParams,
   RequestArgsGet,
   RequestArgsGetOptionalParams,
@@ -9,6 +10,7 @@ import type {
   Categories,
   GenderOptions,
   Locations,
+  Memberships,
   MobileProviders,
   PaymentTypes,
   Programs,
@@ -22,9 +24,9 @@ import type {
 } from '$mindbody/types';
 import type { MarkRequired } from 'ts-essentials';
 
-import { MindbodyClient } from '$http/MindbodyClient';
+import { MindbodyAPIClient } from '$http/MindbodyAPIClient';
 
-const MINDBODY = MindbodyClient.get();
+const MINDBODY = MindbodyAPIClient.get();
 
 // ========================
 // GET /site/{endpoint}
@@ -56,8 +58,11 @@ async function getActivationCode(
  */
 async function getGenders(
   args: RequestArgsGetOptionalParams<never>,
-): Promise<GenderOptions> {
-  return await MINDBODY.get('/site/genders', args);
+): Promise<PaginatedResponse<GenderOptions>> {
+  return await MINDBODY.getPaginated('/site/genders', {
+    ...args,
+    objectIndexKey: 'GenderOptions',
+  });
 }
 
 /**
@@ -65,8 +70,11 @@ async function getGenders(
  */
 async function getLocations(
   args: RequestArgsGetOptionalParams<never>,
-): Promise<Locations> {
-  return await MINDBODY.get('/site/locations', args);
+): Promise<PaginatedResponse<Locations>> {
+  return await MINDBODY.getPaginated('/site/locations', {
+    ...args,
+    objectIndexKey: 'Locations',
+  });
 }
 
 export type GetMembershipsQueryParams = QueryParams<{
@@ -78,7 +86,7 @@ export type GetMembershipsQueryParams = QueryParams<{
  */
 async function getMemberships(
   args: RequestArgsGet<GetMembershipsQueryParams>,
-): Promise<Locations> {
+): Promise<Memberships> {
   return await MINDBODY.get('/site/memberships', args);
 }
 
@@ -99,8 +107,11 @@ export type GetProgramsQueryParams = QueryParams<{
  */
 async function getPrograms(
   args: RequestArgsGetOptionalParams<GetProgramsQueryParams>,
-): Promise<Programs> {
-  return await MINDBODY.get('/site/programs', args);
+): Promise<PaginatedResponse<Programs>> {
+  return await MINDBODY.getPaginated('/site/programs', {
+    ...args,
+    objectIndexKey: 'Programs',
+  });
 }
 
 export type GetPromoCodesQueryParams = QueryParams<{
@@ -119,7 +130,7 @@ export type GetPromoCodesQueryParams = QueryParams<{
  */
 async function getPromoCodes(
   args: RequestArgsGetOptionalParams<GetPromoCodesQueryParams>,
-): Promise<PromoCodes> {
+): Promise<PaginatedResponse<PromoCodes>> {
   return await MINDBODY.get('/site/promocodes', args);
 }
 
@@ -135,8 +146,11 @@ export type GetResourcesQueryParams = QueryParams<{
  */
 async function getResources(
   args: RequestArgsGetOptionalParams<GetResourcesQueryParams>,
-): Promise<Resources> {
-  return await MINDBODY.get('/site/resources', args);
+): Promise<PaginatedResponse<Resources>> {
+  return await MINDBODY.getPaginated('/site/resources', {
+    ...args,
+    objectIndexKey: 'Resources',
+  });
 }
 
 export type GetSessionTypesQueryParams = QueryParams<{
@@ -149,8 +163,11 @@ export type GetSessionTypesQueryParams = QueryParams<{
  */
 async function getSessionTypes(
   args: RequestArgsGetOptionalParams<GetSessionTypesQueryParams>,
-): Promise<SessionTypes> {
-  return await MINDBODY.get('/site/sessiontypes', args);
+): Promise<PaginatedResponse<SessionTypes>> {
+  return await MINDBODY.getPaginated('/site/sessiontypes', {
+    ...args,
+    objectIndexKey: 'SessionTypes',
+  });
 }
 
 export type GetSitesQueryParams = QueryParams<{
@@ -167,8 +184,11 @@ export type GetSitesQueryParams = QueryParams<{
  */
 async function getSites(
   args: RequestArgsGetOptionalParams<GetSitesQueryParams>,
-): Promise<Sites> {
-  return await MINDBODY.get('/site/sites', args);
+): Promise<PaginatedResponse<Sites>> {
+  return await MINDBODY.getPaginated('/site/sites', {
+    ...args,
+    objectIndexKey: 'Sites',
+  });
 }
 
 export type GetCategoriesQueryParams = QueryParams<{
@@ -188,8 +208,11 @@ export type GetCategoriesQueryParams = QueryParams<{
  */
 async function getCategories(
   args: RequestArgsGetOptionalParams<GetCategoriesQueryParams>,
-): Promise<Categories> {
-  return await MINDBODY.get('/site/categories', args);
+): Promise<PaginatedResponse<Categories>> {
+  return await MINDBODY.getPaginated('/site/categories', {
+    ...args,
+    objectIndexKey: 'Categories',
+  });
 }
 
 export type GetPaymentTypesQueryParams = QueryParams<{
@@ -201,8 +224,11 @@ export type GetPaymentTypesQueryParams = QueryParams<{
  */
 async function getPaymentTypes(
   args: RequestArgsGetOptionalParams<GetPaymentTypesQueryParams>,
-): Promise<PaymentTypes> {
-  return await MINDBODY.get('/site/paymenttypes', args);
+): Promise<PaginatedResponse<PaymentTypes>> {
+  return await MINDBODY.getPaginated('/site/paymenttypes', {
+    ...args,
+    objectIndexKey: 'PaymentTypes',
+  });
 }
 
 export type GetRelationshipsQueryParams = QueryParams<{
@@ -216,8 +242,11 @@ export type GetRelationshipsQueryParams = QueryParams<{
  */
 async function getRelationships(
   args: RequestArgsGetOptionalParams<GetRelationshipsQueryParams>,
-): Promise<Relationships> {
-  return await MINDBODY.get('/site/relationships', args);
+): Promise<PaginatedResponse<Relationships>> {
+  return await MINDBODY.getPaginated('/site/relationships', {
+    ...args,
+    objectIndexKey: 'Relationships',
+  });
 }
 
 export type GetMobileProvidersQueryParams = QueryParams<{
@@ -231,8 +260,11 @@ export type GetMobileProvidersQueryParams = QueryParams<{
  */
 async function getMobileProviders(
   args: RequestArgsGetOptionalParams<GetMobileProvidersQueryParams>,
-): Promise<MobileProviders> {
-  return await MINDBODY.get('/site/mobileproviders', args);
+): Promise<PaginatedResponse<MobileProviders>> {
+  return await MINDBODY.getPaginated('/site/mobileproviders', {
+    ...args,
+    objectIndexKey: 'MobileProviders',
+  });
 }
 
 export type GetProspectStagesQueryParams = QueryParams<{
@@ -246,8 +278,11 @@ export type GetProspectStagesQueryParams = QueryParams<{
  */
 async function getProspectStages(
   args: RequestArgsGetOptionalParams<GetProspectStagesQueryParams>,
-): Promise<ProspectStages> {
-  return await MINDBODY.get('/site/prospectstages', args);
+): Promise<PaginatedResponse<ProspectStages>> {
+  return await MINDBODY.getPaginated('/site/prospectstages', {
+    ...args,
+    objectIndexKey: 'ProspectStages',
+  });
 }
 
 // ========================

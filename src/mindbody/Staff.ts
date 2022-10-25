@@ -1,4 +1,5 @@
 import type {
+  PaginatedResponse,
   QueryParams,
   RequestArgsGet,
   RequestArgsGetOptionalParams,
@@ -15,9 +16,9 @@ import type {
 } from '$mindbody/types';
 import type { MarkRequired } from 'ts-essentials';
 
-import { MindbodyClient } from '$http/MindbodyClient';
+import { MindbodyAPIClient } from '$http/MindbodyAPIClient';
 
-const MINDBODY = MindbodyClient.get();
+const MINDBODY = MindbodyAPIClient.get();
 
 // ========================
 // GET /staff/{endpoint}
@@ -47,8 +48,11 @@ export type GetStaffQueryParams = QueryParams<{
  */
 async function getStaff(
   args: RequestArgsGetOptionalParams<GetStaffQueryParams>,
-): Promise<StaffMembers> {
-  return await MINDBODY.get('/staff/staff', args);
+): Promise<PaginatedResponse<StaffMembers>> {
+  return await MINDBODY.getPaginated('/staff/staff', {
+    ...args,
+    objectIndexKey: 'StaffMembers',
+  });
 }
 
 export type GetStaffPermissionsQueryParams = QueryParams<{
@@ -93,8 +97,11 @@ export type StaffSessionTypesQueryParams = QueryParams<{
  */
 async function getStaffSessionTypes(
   args: RequestArgsGet<StaffSessionTypesQueryParams>,
-): Promise<StaffSessionTypes> {
-  return await MINDBODY.get('/staff/sessiontypes', args);
+): Promise<PaginatedResponse<StaffSessionTypes>> {
+  return await MINDBODY.getPaginated('/staff/sessiontypes', {
+    ...args,
+    objectIndexKey: 'StaffSessionTypes',
+  });
 }
 
 export type SalesRepsQueryParams = QueryParams<{

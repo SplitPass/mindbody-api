@@ -1,19 +1,23 @@
 import type { AxiosInstance } from 'axios';
 import type { ErrorResponse, Headers, TokenResponse } from '$http/types';
+import type { WebhookErrorResponse } from '$webhooks/types/WebhookErrorResponse';
 
 import axios, { AxiosError } from 'axios';
 import Config from '$Config';
 import MindbodyError from '$http/MindbodyError';
 import * as TokenCache from '$http/TokenCache';
 
-const BASE_URL = 'https://api.mindbodyonline.com/public/v6';
+const API_BASE_URL = 'https://api.mindbodyonline.com/public/v6';
+const WEBHOOKS_BASE_URL = 'https://mb-api.mindbodyonline.com/push/api/v1';
 const TWENTY_FOUR_HOURS = 3600 * 1000 * 24;
 
 export class BaseClient {
   protected client: AxiosInstance;
 
-  protected constructor() {
-    this.client = axios.create({ baseURL: BASE_URL });
+  protected constructor(clientType: 'api-client' | 'webhooks-client') {
+    this.client = axios.create({
+      baseURL: clientType === 'api-client' ? API_BASE_URL : WEBHOOKS_BASE_URL,
+    });
     this.client.interceptors.response.use(
       res => res,
       err => {
@@ -29,7 +33,10 @@ export class BaseClient {
             );
           }
 
-          const error = err.response.data as ErrorResponse;
+          const error = err.response.data as
+            | ErrorResponse
+            | WebhookErrorResponse;
+
           throw new MindbodyError(error);
         }
 
@@ -46,12 +53,21 @@ export class BaseClient {
     return [this.client, headers];
   }
 
-  protected basicHeaders(siteID: string): Headers {
-    return {
+  protected webhookRequest(): [AxiosInstance, Headers] {
+    return [this.client, this.basicHeaders()];
+  }
+
+  protected basicHeaders(siteID?: string): Headers {
+    const headers = {
       'Content-Type': 'application/json',
       'Api-Key': Config.getApiKey(),
-      SiteId: siteID,
-    };
+    } as Headers;
+
+    if (siteID != null) {
+      headers.SiteId = siteID;
+    }
+
+    return headers;
   }
 
   protected async authHeaders(siteID: string): Promise<Required<Headers>> {

@@ -1,4 +1,5 @@
 import type {
+  PaginatedResponse,
   QueryParams,
   RequestArgsDelete,
   RequestArgsGet,
@@ -14,9 +15,9 @@ import type {
   Staff,
 } from '$mindbody/types';
 
-import { MindbodyClient } from '$http/MindbodyClient';
+import { MindbodyAPIClient } from '$http/MindbodyAPIClient';
 
-const MINDBODY = MindbodyClient.get();
+const MINDBODY = MindbodyAPIClient.get();
 
 // ========================
 // GET /appointment/{endpoint}
@@ -45,8 +46,11 @@ export type GetActiveSessionTimesQueryParams = QueryParams<{
  */
 async function getActiveSessionTimes(
   args: RequestArgsGetOptionalParams<GetActiveSessionTimesQueryParams>,
-): Promise<{ ActiveSessionTimes: string[] }> {
-  return await MINDBODY.get('/appointment/activesessiontimes', args);
+): Promise<PaginatedResponse<{ ActiveSessionTimes: string[] }>> {
+  return await MINDBODY.getPaginated('/appointment/activesessiontimes', {
+    ...args,
+    objectIndexKey: 'ActiveSessionTimes',
+  });
 }
 
 export type GetAppointmentAddOnsQueryParams = QueryParams<{
@@ -60,8 +64,11 @@ export type GetAppointmentAddOnsQueryParams = QueryParams<{
  */
 async function getAppointmentAddOns(
   args: RequestArgsGetOptionalParams<GetAppointmentAddOnsQueryParams>,
-): Promise<AddOns> {
-  return await MINDBODY.get('/appointment/addons', args);
+): Promise<PaginatedResponse<AddOns>> {
+  return await MINDBODY.getPaginated('/appointment/addons', {
+    ...args,
+    objectIndexKey: 'AddOnds',
+  });
 }
 
 export type GetAppointmentAvailableDatesQueryParams = QueryParams<{
@@ -114,8 +121,11 @@ export type GetBookableItemsQueryParams = QueryParams<{
  */
 async function getBookableItems(
   args: RequestArgsGet<GetBookableItemsQueryParams>,
-): Promise<Availabilities> {
-  return await MINDBODY.get('/appointment/bookableitems', args);
+): Promise<PaginatedResponse<Availabilities>> {
+  return await MINDBODY.getPaginated('/appointment/bookableitems', {
+    ...args,
+    objectIndexKey: 'Availabilities',
+  });
 }
 
 export type GetScheduleItemsQueryParams = QueryParams<{
@@ -135,8 +145,11 @@ export type GetScheduleItemsQueryParams = QueryParams<{
  */
 async function getScheduleItems(
   args: RequestArgsGetOptionalParams<GetScheduleItemsQueryParams>,
-): Promise<{ StaffMembers: Staff[] }> {
-  return await MINDBODY.get('/appointment/scheduleitems', args);
+): Promise<PaginatedResponse<{ StaffMembers: Staff[] }>> {
+  return await MINDBODY.getPaginated('/appointment/scheduleitems', {
+    ...args,
+    objectIndexKey: 'StaffMembers',
+  });
 }
 
 export type GetStaffAppointmentsQueryParams = QueryParams<{
@@ -155,8 +168,11 @@ export type GetStaffAppointmentsQueryParams = QueryParams<{
  */
 async function getStaffAppointments(
   args: RequestArgsGetOptionalParams<GetStaffAppointmentsQueryParams>,
-): Promise<Appointments> {
-  return await MINDBODY.get('/appointment/staffappointments', args);
+): Promise<PaginatedResponse<Appointments>> {
+  return await MINDBODY.getPaginated('/appointment/staffappointments', {
+    ...args,
+    objectIndexKey: 'Appointments',
+  });
 }
 
 // ========================

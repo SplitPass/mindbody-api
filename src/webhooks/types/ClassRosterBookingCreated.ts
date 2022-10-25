@@ -1,0 +1,35 @@
+import type { WebhookEventBase } from '$webhooks/types';
+
+export type ClassRosterBookingCreated = WebhookEventBase<{
+  siteId: number;
+  locationId: number;
+  classId: number;
+  classRosterBookingId: number;
+  classStartDateTime: string;
+  classEndDateTime: string;
+  signedInStatus: string;
+  staffId: number;
+  staffName: string;
+  maxCapacity: number;
+  webCapacity: number;
+  totalBooked: number;
+  webBooked: number;
+  totalWaitlisted: number;
+  clientId: string;
+  clientUniqueId: number;
+  clientFirstName: string;
+  clientLastName: string;
+  clientEmail: string;
+  clientPhone: string;
+  clientPassId: string;
+  clientPassSessionsTotal: number;
+  clientPassSessionsDeducted: number;
+  clientPassSessionsRemaining: number;
+  clientPassActivationDateTime: string;
+  clientPassExpirationDateTime: string;
+  bookingOriginatedFromWaitlist: boolean;
+  clientsNumberOfVisitsAtSite: number;
+  itemId: number;
+  itemName: string;
+  itemSiteId: number;
+}>;

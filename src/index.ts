@@ -1,5 +1,6 @@
 import type * as Http from '$http/types';
 import type * as MBType from '$mindbody/types';
+import type * as MBWebhookType from '$webhooks/types';
 
 import Appointment from '$mindbody/Appointment';
 import Class from '$mindbody/Class';
@@ -11,6 +12,7 @@ import Payroll from '$mindbody/Payroll';
 import Sale from '$mindbody/Sale';
 import Site from '$mindbody/Site';
 import Staff from '$mindbody/Staff';
+import Webhooks from '$webhooks';
 
 const exports = {
   Appointment,
@@ -23,9 +25,10 @@ const exports = {
   Sale,
   Site,
   Staff,
+  Webhooks,
 };
 
-export type { MBType, Http };
+export type { MBType, MBWebhookType, Http };
 export default exports;
 export {
   Appointment,
@@ -38,4 +41,5 @@ export {
   Sale,
   Site,
   Staff,
+  Webhooks,
 };

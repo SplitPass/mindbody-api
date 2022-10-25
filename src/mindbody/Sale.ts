@@ -1,4 +1,5 @@
 import type {
+  PaginatedResponse,
   QueryParams,
   RequestArgsGet,
   RequestArgsGetOptionalParams,
@@ -20,6 +21,7 @@ import type {
   GiftCards,
   PackageItemMetadata,
   PackagePaymentItemMetadata,
+  Packages,
   Product,
   ProductItemMetadata,
   Products,
@@ -39,9 +41,9 @@ import type {
   Transactions,
 } from '$mindbody/types';
 
-import { MindbodyClient } from '$http/MindbodyClient';
+import { MindbodyAPIClient } from '$http/MindbodyAPIClient';
 
-const MINDBODY = MindbodyClient.get();
+const MINDBODY = MindbodyAPIClient.get();
 
 // ========================
 // GET /sale/{endpoint}
@@ -76,8 +78,11 @@ export type GetContractsQueryParams = QueryParams<{
  */
 async function getContracts(
   args: RequestArgsGetOptionalParams<GetContractsQueryParams>,
-): Promise<Contracts> {
-  return await MINDBODY.get('/sale/contracts', args);
+): Promise<PaginatedResponse<Contracts>> {
+  return await MINDBODY.getPaginated('/sale/contracts', {
+    ...args,
+    objectIndexKey: 'Contracts',
+  });
 }
 
 /**
@@ -116,8 +121,11 @@ export type GetGiftCardsQueryParams = QueryParams<{
  */
 async function getGiftCards(
   args: RequestArgsGet<GetGiftCardsQueryParams>,
-): Promise<GiftCards> {
-  return await MINDBODY.get('/sale/giftcards', args);
+): Promise<PaginatedResponse<GiftCards>> {
+  return await MINDBODY.getPaginated('/sale/giftcards', {
+    ...args,
+    objectIndexKey: 'GiftCards',
+  });
 }
 
 export type GetPackagesQueryParams = QueryParams<{
@@ -138,8 +146,11 @@ export type GetPackagesQueryParams = QueryParams<{
  */
 async function getPackages(
   args: RequestArgsGetOptionalParams<GetPackagesQueryParams>,
-): Promise<GiftCards> {
-  return await MINDBODY.get('/sale/packages', args);
+): Promise<PaginatedResponse<Packages>> {
+  return await MINDBODY.getPaginated('/sale/packages', {
+    ...args,
+    objectIndexKey: 'Packages',
+  });
 }
 
 export type GetProductsQueryParams = QueryParams<{
@@ -156,8 +167,11 @@ export type GetProductsQueryParams = QueryParams<{
  */
 async function getProducts(
   args: RequestArgsGetOptionalParams<GetProductsQueryParams>,
-): Promise<Products> {
-  return await MINDBODY.get('/sale/products', args);
+): Promise<PaginatedResponse<Products>> {
+  return await MINDBODY.getPaginated('/sale/products', {
+    ...args,
+    objectIndexKey: 'Products',
+  });
 }
 
 export type GetProductsInventoryQueryParams = QueryParams<{
@@ -171,8 +185,11 @@ export type GetProductsInventoryQueryParams = QueryParams<{
  */
 async function getProductsInventory(
   args: RequestArgsGetOptionalParams<GetProductsInventoryQueryParams>,
-): Promise<ProductsInventory> {
-  return await MINDBODY.get('/sale/productsinventory', args);
+): Promise<PaginatedResponse<ProductsInventory>> {
+  return await MINDBODY.getPaginated('/sale/productsinventory', {
+    ...args,
+    objectIndexKey: 'ProductsInventory',
+  });
 }
 
 export type GetSalesQueryParams = QueryParams<{
@@ -187,8 +204,11 @@ export type GetSalesQueryParams = QueryParams<{
  */
 async function getSales(
   args: RequestArgsGetOptionalParams<GetSalesQueryParams>,
-): Promise<Sales> {
-  return await MINDBODY.get('/sale/sales', args);
+): Promise<PaginatedResponse<Sales>> {
+  return await MINDBODY.getPaginated('/sale/sales', {
+    ...args,
+    objectIndexKey: 'Sales',
+  });
 }
 
 export type GetServicesQueryParams = QueryParams<{
@@ -210,8 +230,11 @@ export type GetServicesQueryParams = QueryParams<{
  */
 async function getServices(
   args: RequestArgsGetOptionalParams<GetServicesQueryParams>,
-): Promise<Services> {
-  return await MINDBODY.get('/sale/services', args);
+): Promise<PaginatedResponse<Services>> {
+  return await MINDBODY.getPaginated('/sale/services', {
+    ...args,
+    objectIndexKey: 'Services',
+  });
 }
 
 export type GetTransactionsQueryParams = QueryParams<{
@@ -229,8 +252,11 @@ export type GetTransactionsQueryParams = QueryParams<{
  */
 async function getTransactions(
   args: RequestArgsGetOptionalParams<GetTransactionsQueryParams>,
-): Promise<Transactions> {
-  return await MINDBODY.get('/sale/transactions', args);
+): Promise<PaginatedResponse<Transactions>> {
+  return await MINDBODY.getPaginated('/sale/transactions', {
+    ...args,
+    objectIndexKey: 'Transactions',
+  });
 }
 
 // ========================

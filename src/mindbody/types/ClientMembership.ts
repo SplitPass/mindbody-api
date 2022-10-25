@@ -11,10 +11,6 @@ export type ClientsMemberships = {
   }[];
 };
 
-export type Memberships = {
-  Memberships: ClientMembership[];
-};
-
 export type ClientMembership = {
   RestrictedLocations: Location[];
   IconCode: string;

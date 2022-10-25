@@ -1,4 +1,5 @@
 import type {
+  PaginatedResponse,
   RequestArgsDelete,
   RequestArgsGet,
   RequestArgsGetOptionalParams,
@@ -7,17 +8,18 @@ import type {
 import type { Kv } from '$http/types/Kv';
 
 import { BaseClient } from '$http/BaseClient';
+import { autoPager } from '$http/autoPager';
 
-type Returnable = Kv | (string | number)[];
+export type Returnable = Kv | (string | number)[];
 
-export class MindbodyClient extends BaseClient {
-  private static instance?: MindbodyClient = new this();
+export class MindbodyAPIClient extends BaseClient {
+  private static instance?: MindbodyAPIClient = new this();
 
   private constructor() {
-    super();
+    super('api-client');
   }
 
-  public static get(): MindbodyClient {
+  public static get(): MindbodyAPIClient {
     return this.instance ?? (this.instance = new this());
   }
 
@@ -31,6 +33,32 @@ export class MindbodyClient extends BaseClient {
       headers,
       params: args.params,
     });
+
+    return res.data;
+  }
+
+  public async getPaginated<R extends Returnable>(
+    endpoint: string,
+    args: (RequestArgsGet<Kv> | RequestArgsGetOptionalParams<Kv>) & {
+      objectIndexKey: string;
+    },
+  ): Promise<PaginatedResponse<R>> {
+    const [client, headers] = await this.request(args.siteID);
+    const res = await client<PaginatedResponse<R>>(endpoint, {
+      method: 'GET',
+      headers,
+      params: args.params,
+    });
+
+    if (args.autoPaginate) {
+      return await autoPager({
+        client: client,
+        endpoint: endpoint,
+        headers: headers,
+        firstPage: res.data,
+        objectIndexKey: args.objectIndexKey,
+      });
+    }
 
     return res.data;
   }

@@ -1,13 +1,14 @@
 import type {
+  PaginatedResponse,
   QueryParams,
   RequestArgsGetOptionalParams,
   RequestArgsPost,
 } from '$http/types';
 import type { AddClientToEnrollment, Enrollments } from '$mindbody/types';
 
-import { MindbodyClient } from '$http/MindbodyClient';
+import { MindbodyAPIClient } from '$http/MindbodyAPIClient';
 
-const MINDBODY = MindbodyClient.get();
+const MINDBODY = MindbodyAPIClient.get();
 
 // ========================
 // GET /enrollment/{endpoint}
@@ -43,8 +44,11 @@ export type GetEnrollmentsQueryParams = QueryParams<{
  */
 async function getEnrollments(
   args: RequestArgsGetOptionalParams<GetEnrollmentsQueryParams>,
-): Promise<Enrollments> {
-  return await MINDBODY.get('/enrollment/enrollments', args);
+): Promise<PaginatedResponse<Enrollments>> {
+  return await MINDBODY.getPaginated('/enrollment/enrollments', {
+    ...args,
+    objectIndexKey: 'Enrollments',
+  });
 }
 
 // ========================

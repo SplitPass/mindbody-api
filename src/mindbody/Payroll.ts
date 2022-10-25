@@ -1,4 +1,8 @@
-import type { QueryParams, RequestArgsGetOptionalParams } from '$http/types';
+import type {
+  PaginatedResponse,
+  QueryParams,
+  RequestArgsGetOptionalParams,
+} from '$http/types';
 import type {
   Commissions,
   ScheduledServiceEarnings,
@@ -6,9 +10,9 @@ import type {
   Tips,
 } from '$mindbody/types';
 
-import { MindbodyClient } from '$http/MindbodyClient';
+import { MindbodyAPIClient } from '$http/MindbodyAPIClient';
 
-const MINDBODY = MindbodyClient.get();
+const MINDBODY = MindbodyAPIClient.get();
 
 // ========================
 // GET /payroll/{endpoint}
@@ -34,8 +38,11 @@ export type GetCommissionsQueryParams = QueryParams<{
  */
 async function getCommissions(
   args: RequestArgsGetOptionalParams<GetCommissionsQueryParams>,
-): Promise<Commissions> {
-  return await MINDBODY.get('/payroll/commissions', args);
+): Promise<PaginatedResponse<Commissions>> {
+  return await MINDBODY.getPaginated('/payroll/commissions', {
+    ...args,
+    objectIndexKey: 'Commissions',
+  });
 }
 
 export type ScheduledServiceEarningsQueryParams = QueryParams<{
@@ -70,8 +77,11 @@ export type ScheduledServiceEarningsQueryParams = QueryParams<{
  */
 async function getScheduledServiceEarnings(
   args: RequestArgsGetOptionalParams<ScheduledServiceEarningsQueryParams>,
-): Promise<ScheduledServiceEarnings> {
-  return await MINDBODY.get('/payroll/scheduledserviceearnings', args);
+): Promise<PaginatedResponse<ScheduledServiceEarnings>> {
+  return await MINDBODY.getPaginated('/payroll/scheduledserviceearnings', {
+    ...args,
+    objectIndexKey: 'ScheduledServiceEarnings',
+  });
 }
 
 export type GetTimeCardsQueryParams = QueryParams<{
@@ -88,8 +98,11 @@ export type GetTimeCardsQueryParams = QueryParams<{
  */
 async function getTimeCards(
   args: RequestArgsGetOptionalParams<GetTimeCardsQueryParams>,
-): Promise<Timecards> {
-  return await MINDBODY.get('/payroll/timecards', args);
+): Promise<PaginatedResponse<Timecards>> {
+  return await MINDBODY.getPaginated('/payroll/timecards', {
+    ...args,
+    objectIndexKey: 'TimeCards',
+  });
 }
 
 export type GetTipsQueryParams = QueryParams<{
@@ -112,8 +125,11 @@ export type GetTipsQueryParams = QueryParams<{
  */
 async function getTips(
   args: RequestArgsGetOptionalParams<GetTipsQueryParams>,
-): Promise<Tips> {
-  return await MINDBODY.get('/payroll/tips', args);
+): Promise<PaginatedResponse<Tips>> {
+  return await MINDBODY.getPaginated('/payroll/tips', {
+    ...args,
+    objectIndexKey: 'Tips',
+  });
 }
 
 export default {
