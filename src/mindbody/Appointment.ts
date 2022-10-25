@@ -47,7 +47,10 @@ export type GetActiveSessionTimesQueryParams = QueryParams<{
 async function getActiveSessionTimes(
   args: RequestArgsGetOptionalParams<GetActiveSessionTimesQueryParams>,
 ): Promise<PaginatedResponse<{ ActiveSessionTimes: string[] }>> {
-  return await MINDBODY.get('/appointment/activesessiontimes', args);
+  return await MINDBODY.getPaginated('/appointment/activesessiontimes', {
+    ...args,
+    objectIndexKey: 'ActiveSessionTimes',
+  });
 }
 
 export type GetAppointmentAddOnsQueryParams = QueryParams<{
@@ -62,7 +65,10 @@ export type GetAppointmentAddOnsQueryParams = QueryParams<{
 async function getAppointmentAddOns(
   args: RequestArgsGetOptionalParams<GetAppointmentAddOnsQueryParams>,
 ): Promise<PaginatedResponse<AddOns>> {
-  return await MINDBODY.get('/appointment/addons', args);
+  return await MINDBODY.getPaginated('/appointment/addons', {
+    ...args,
+    objectIndexKey: 'AddOnds',
+  });
 }
 
 export type GetAppointmentAvailableDatesQueryParams = QueryParams<{

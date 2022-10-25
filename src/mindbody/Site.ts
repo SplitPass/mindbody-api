@@ -164,7 +164,10 @@ export type GetSessionTypesQueryParams = QueryParams<{
 async function getSessionTypes(
   args: RequestArgsGetOptionalParams<GetSessionTypesQueryParams>,
 ): Promise<PaginatedResponse<SessionTypes>> {
-  return await MINDBODY.get('/site/sessiontypes', args);
+  return await MINDBODY.getPaginated('/site/sessiontypes', {
+    ...args,
+    objectIndexKey: 'SessionTypes',
+  });
 }
 
 export type GetSitesQueryParams = QueryParams<{
