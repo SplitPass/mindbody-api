@@ -6,5 +6,5 @@ export type PaginatedResponse<TResponse extends Returnable> = {
     RequestedOffset: number;
     PageSize: number;
     TotalResults: number;
-  } & TResponse;
-};
+  };
+} & TResponse;

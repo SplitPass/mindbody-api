@@ -1,7 +1,7 @@
 <div>
     <h1>Mindbody API</h1>
     <p><b>Type safe library for interacting with Mindbody's Public API (v6) and Webhooks</b></p>
-    <img src="https://img.shields.io/github/package-json/v/splitpass/mindbody-api?color=blue&style=for-the-badge" alt="Latest version of splitpass/mindbody-api is 0.1.12">
+    <img src="https://img.shields.io/github/package-json/v/splitpass/mindbody-api?color=blue&style=for-the-badge" alt="Latest version of splitpass/mindbody-api is 0.2.0">
 </div>
 <br />
 
@@ -58,7 +58,7 @@ Config.setup({
 Endpoints are logically separated based on the categories listed [here](https://developers.mindbodyonline.com/PublicDocumentation/V6#endpoints).
 
 ```ts
-import { Class, Client, Staff } from 'mindbody-api-v6';
+import { Class, Client, Staff, Webhooks } from 'mindbody-api-v6';
 
 const classes = await Class.getClassSchedules({
   siteID: '123',
@@ -79,7 +79,17 @@ const newClient = await Client.addClient({
  */
 const staff = await Staff.getStaff({
   siteID: '123',
+  // Automatically page through all results.
+  // Only applicable for paginated endpoints
+  autoPaginate: true,
 });
+
+/**
+ * Interact with Webhooks API
+ *
+ * https://developers.mindbodyonline.com/WebhooksDocumentation
+ */
+await Webhooks.Subscriptions.createSubscription({ ... });
 ```
 
 ### Types
@@ -87,15 +97,16 @@ const staff = await Staff.getStaff({
 All model definitions are exported under `MBType`. A full list of models can be found [here](https://developers.mindbodyonline.com/PublicDocumentation/V6#shared-resources). Additional models were added for easy access to complex types not listed in Mindbody's documentation
 
 ```ts
-import { MBType } from 'mindbody-api-v6';
+import type { MBType, MBWebhookType } from 'mindbody-api-v6';
 
 const staff: MBType.Staff = ...;
 const client: MBType.Client = ...;
+// Webhook event types
+const newClient: MBWebhookType.ClientCreated = ...;
 ```
 
 ## Roadmap
 
 | Version | Features                       |
 | ------- | ------------------------------ |
-| 0.2.0   | Auto pagination, webhooks      |
 | 1.0.0   | Test coverage, type refinement |

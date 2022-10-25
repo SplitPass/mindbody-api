@@ -5,7 +5,7 @@ import typescript from '@rollup/plugin-typescript';
 export default [
   {
     input: 'src/index.ts',
-    external: ['axios'],
+    external: ['axios', 'p-limit'],
     output: [
       {
         file: 'dist/esm/index.mjs',
@@ -31,7 +31,7 @@ export default [
   },
   {
     input: 'src/index.ts',
-    external: ['axios'],
+    external: ['axios', 'p-limit'],
     output: [
       {
         file: 'dist/types.d.ts',

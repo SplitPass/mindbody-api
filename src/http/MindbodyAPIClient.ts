@@ -50,7 +50,7 @@ export class MindbodyAPIClient extends BaseClient {
       params: args.params,
     });
 
-    if (args.config?.autoPaginate) {
+    if (args.autoPaginate) {
       return await autoPager({
         client: client,
         endpoint: endpoint,

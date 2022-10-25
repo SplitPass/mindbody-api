@@ -64,8 +64,8 @@ export async function autoPager<T extends Returnable>(
     allResults.push(...data);
   });
 
+  // @ts-expect-error
   return {
-    // @ts-expect-error
     PaginationResponse: {
       TotalResults: allResults.length,
       RequestedLimit: allResults.length,
