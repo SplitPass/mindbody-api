@@ -15,9 +15,9 @@ import type {
 } from '$mindbody/types';
 import type { MarkRequired } from 'ts-essentials';
 
-import { MindbodyClient } from '$http/MindbodyClient';
+import { MindbodyAPIClient } from '$http/MindbodyAPIClient';
 
-const MINDBODY = MindbodyClient.get();
+const MINDBODY = MindbodyAPIClient.get();
 
 // ========================
 // GET /staff/{endpoint}

@@ -16,9 +16,9 @@ import type {
   WaitlistEntries,
 } from '$mindbody/types';
 
-import { MindbodyClient } from '$http/MindbodyClient';
+import { MindbodyAPIClient } from '$http/MindbodyAPIClient';
 
-const MINDBODY = MindbodyClient.get();
+const MINDBODY = MindbodyAPIClient.get();
 
 // ========================
 // GET /class/{endpoint}

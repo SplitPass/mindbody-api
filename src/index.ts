@@ -11,6 +11,7 @@ import Payroll from '$mindbody/Payroll';
 import Sale from '$mindbody/Sale';
 import Site from '$mindbody/Site';
 import Staff from '$mindbody/Staff';
+import Webhooks from '$webhooks';
 
 const exports = {
   Appointment,
@@ -38,4 +39,5 @@ export {
   Sale,
   Site,
   Staff,
+  Webhooks,
 };

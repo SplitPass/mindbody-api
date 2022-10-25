@@ -10,14 +10,14 @@ import { BaseClient } from '$http/BaseClient';
 
 type Returnable = Kv | (string | number)[];
 
-export class MindbodyClient extends BaseClient {
-  private static instance?: MindbodyClient = new this();
+export class MindbodyAPIClient extends BaseClient {
+  private static instance?: MindbodyAPIClient = new this();
 
   private constructor() {
-    super();
+    super('api-client');
   }
 
-  public static get(): MindbodyClient {
+  public static get(): MindbodyAPIClient {
     return this.instance ?? (this.instance = new this());
   }
 

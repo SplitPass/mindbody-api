@@ -25,3 +25,7 @@ export type RequestArgsDelete<TParam extends Kv> = {
   siteID: string;
   params?: TParam;
 };
+
+export type WebhooksRequestsArgsPost<TParam extends Kv> = TParam;
+
+export type WebhooksRequestsArgsPatch<TParam extends Kv> = TParam;
