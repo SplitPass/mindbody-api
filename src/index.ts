@@ -25,6 +25,7 @@ const exports = {
   Sale,
   Site,
   Staff,
+  Webhooks,
 };
 
 export type { MBType, MBWebhookType, Http };

@@ -1,5 +1,6 @@
 import type {
   ErrorCode,
+  PaginatedResponse,
   QueryParams,
   RequestArgsGet,
   RequestArgsGetOptionalParams,
@@ -47,8 +48,11 @@ export type GetClassesQueryParams = QueryParams<{
  */
 async function getClasses(
   args: RequestArgsGetOptionalParams<GetClassesQueryParams>,
-): Promise<Classes> {
-  return await MINDBODY.get('/class/classes', args);
+): Promise<PaginatedResponse<Classes>> {
+  return await MINDBODY.getPaginated('/class/classes', {
+    ...args,
+    objectIndexKey: 'Classes',
+  });
 }
 
 export type GetClassDescriptionsQueryParams = QueryParams<{
@@ -65,8 +69,11 @@ export type GetClassDescriptionsQueryParams = QueryParams<{
  */
 async function getClassDescriptions(
   args: RequestArgsGet<GetClassDescriptionsQueryParams>,
-): Promise<ClassDescriptions> {
-  return await MINDBODY.get('/class/classdescriptions', args);
+): Promise<PaginatedResponse<ClassDescriptions>> {
+  return await MINDBODY.getPaginated('/class/classdescriptions', {
+    ...args,
+    objectIndexKey: 'ClassDescriptions',
+  });
 }
 
 export type GetClassSchedulesQueryParams = QueryParams<{
@@ -83,8 +90,11 @@ export type GetClassSchedulesQueryParams = QueryParams<{
  */
 async function getClassSchedules(
   args: RequestArgsGetOptionalParams<GetClassSchedulesQueryParams>,
-): Promise<ClassSchedules> {
-  return await MINDBODY.get('/class/classschedules', args);
+): Promise<PaginatedResponse<ClassSchedules>> {
+  return await MINDBODY.getPaginated('/class/classschedules', {
+    ...args,
+    objectIndexKey: 'ClassSchedules',
+  });
 }
 
 export type GetClassVisitsQueryParams = QueryParams<{
@@ -121,8 +131,11 @@ export type GetCoursesQueryParams = QueryParams<{
  */
 async function getCourses(
   args: RequestArgsGetOptionalParams<GetCoursesQueryParams>,
-): Promise<Courses> {
-  return await MINDBODY.get('/class/courses', args);
+): Promise<PaginatedResponse<Courses>> {
+  return await MINDBODY.getPaginated('/class/courses', {
+    ...args,
+    objectIndexKey: 'Courses',
+  });
 }
 
 export type GetWaitlistEntriesQueryParams = QueryParams<{
@@ -141,8 +154,11 @@ export type GetWaitlistEntriesQueryParams = QueryParams<{
  */
 async function getWaitlistEntries(
   args: RequestArgsGetOptionalParams<GetWaitlistEntriesQueryParams>,
-): Promise<WaitlistEntries> {
-  return await MINDBODY.get('/class/waitlistentries', args);
+): Promise<PaginatedResponse<WaitlistEntries>> {
+  return await MINDBODY.getPaginated('/class/waitlistentries', {
+    ...args,
+    objectIndexKey: 'WaitlistEntries',
+  });
 }
 
 export type GetSemestersQueryParams = QueryParams<{
@@ -159,8 +175,11 @@ export type GetSemestersQueryParams = QueryParams<{
  */
 async function getSemesters(
   args: RequestArgsGetOptionalParams<GetSemestersQueryParams>,
-): Promise<Semesters> {
-  return await MINDBODY.get('/class/semesters', args);
+): Promise<PaginatedResponse<Semesters>> {
+  return await MINDBODY.getPaginated('/class/semesters', {
+    ...args,
+    objectIndexKey: 'Semesters',
+  });
 }
 
 // ========================

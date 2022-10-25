@@ -1,4 +1,5 @@
 import type {
+  PaginatedResponse,
   QueryParams,
   RequestArgsDelete,
   RequestArgsGet,
@@ -58,8 +59,11 @@ export type GetActiveClientMembershipsQueryParams = QueryParams<{
  */
 async function getActiveClientMemberships(
   args: RequestArgsGet<GetActiveClientMembershipsQueryParams>,
-): Promise<ActiveClientMemberships> {
-  return await MINDBODY.get('/client/activeclientmemberships', args);
+): Promise<PaginatedResponse<ActiveClientMemberships>> {
+  return await MINDBODY.getPaginated('/client/activeclientmemberships', {
+    ...args,
+    objectIndexKey: 'ClientMemberships',
+  });
 }
 
 export type GetActiveClientsMembershipsQueryParams = QueryParams<{
@@ -80,8 +84,11 @@ export type GetActiveClientsMembershipsQueryParams = QueryParams<{
  */
 async function getActiveClientsMemberships(
   args: RequestArgsGet<GetActiveClientsMembershipsQueryParams>,
-): Promise<ClientsMemberships> {
-  return await MINDBODY.get('/client/activeclientsmemberships', args);
+): Promise<PaginatedResponse<ClientsMemberships>> {
+  return await MINDBODY.getPaginated('/client/activeclientsmemberships', {
+    ...args,
+    objectIndexKey: 'ClientMemberships',
+  });
 }
 
 export type GetClientAccountBalancesQueryParams = QueryParams<{
@@ -95,8 +102,11 @@ export type GetClientAccountBalancesQueryParams = QueryParams<{
  */
 async function getClientAccountBalances(
   args: RequestArgsGet<GetClientAccountBalancesQueryParams>,
-): Promise<Clients> {
-  return await MINDBODY.get('/client/clientaccountbalances', args);
+): Promise<PaginatedResponse<Clients>> {
+  return await MINDBODY.getPaginated('/client/clientaccountbalances', {
+    ...args,
+    objectIndexKey: 'Clients',
+  });
 }
 
 export type GetContactLogsQueryParams = QueryParams<{
@@ -118,8 +128,11 @@ export type GetContactLogsQueryParams = QueryParams<{
  */
 async function getContactLogs(
   args: RequestArgsGet<GetContactLogsQueryParams>,
-): Promise<Clients> {
-  return await MINDBODY.get('/client/contactlogs', args);
+): Promise<PaginatedResponse<ContactLogs>> {
+  return await MINDBODY.getPaginated('/client/contactlogs', {
+    ...args,
+    objectIndexKey: 'ContactLogs',
+  });
 }
 
 export type GetClientContractsQueryParams = QueryParams<{
@@ -133,8 +146,11 @@ export type GetClientContractsQueryParams = QueryParams<{
  */
 async function getClientContracts(
   args: RequestArgsGet<GetClientContractsQueryParams>,
-): Promise<ClientContracts> {
-  return await MINDBODY.get('/client/clientcontracts', args);
+): Promise<PaginatedResponse<ClientContracts>> {
+  return await MINDBODY.getPaginated('/client/clientcontracts', {
+    ...args,
+    objectIndexKey: 'Contracts',
+  });
 }
 
 export type ClientDirectDebitInfoQueryParams = QueryParams<{
@@ -183,8 +199,11 @@ export type ClientDuplicatesQueryParams = QueryParams<{
  */
 async function getClientDuplicates(
   args: RequestArgsGet<ClientDuplicatesQueryParams>,
-): Promise<ClientDuplicates> {
-  return await MINDBODY.get('/client/clientduplicates', args);
+): Promise<PaginatedResponse<ClientDuplicates>> {
+  return await MINDBODY.getPaginated('/client/clientduplicates', {
+    ...args,
+    objectIndexKey: 'ClientDuplicates',
+  });
 }
 
 export type ClientFormulaNotesQueryParams = QueryParams<{
@@ -237,8 +256,11 @@ export type ClientPurchasesQueryParams = QueryParams<{
  */
 async function getClientPurchases(
   args: RequestArgsGet<ClientPurchasesQueryParams>,
-): Promise<ClientPurchases> {
-  return await MINDBODY.get('/client/clientpurchases', args);
+): Promise<PaginatedResponse<ClientPurchases>> {
+  return await MINDBODY.getPaginated('/client/clientpurchases', {
+    ...args,
+    objectIndexKey: 'Purchases',
+  });
 }
 
 export type ClientReferralTypesQueryParams = QueryParams<{
@@ -269,8 +291,11 @@ export type ClientRewardsQueryParams = QueryParams<{
  */
 async function getClientRewards(
   args: RequestArgsGet<ClientRewardsQueryParams>,
-): Promise<ClientRewards> {
-  return await MINDBODY.get('/client/clientrewards', args);
+): Promise<PaginatedResponse<ClientRewards>> {
+  return await MINDBODY.getPaginated('/client/clientrewards', {
+    ...args,
+    objectIndexKey: 'Transactions',
+  });
 }
 
 export type GetClientsQueryParams = QueryParams<{
@@ -287,8 +312,11 @@ export type GetClientsQueryParams = QueryParams<{
  */
 async function getClients(
   args: RequestArgsGetOptionalParams<GetClientsQueryParams>,
-): Promise<Clients> {
-  return await MINDBODY.get('/client/clients', args);
+): Promise<PaginatedResponse<Clients>> {
+  return await MINDBODY.getPaginated('/client/clients', {
+    ...args,
+    objectIndexKey: 'Clients',
+  });
 }
 
 export type GetClientCompleteInfoQueryParams = QueryParams<{
@@ -332,8 +360,11 @@ export type GetClientServicesQueryParams = QueryParams<{
  */
 async function getClientServices(
   args: RequestArgsGet<GetClientServicesQueryParams>,
-): Promise<ClientServices> {
-  return await MINDBODY.get('/client/clientservices', args);
+): Promise<PaginatedResponse<ClientServices>> {
+  return await MINDBODY.getPaginated('/client/clientservices', {
+    ...args,
+    objectIndexKey: 'ClientServices',
+  });
 }
 
 export type GetClientVisitsQueryParams = QueryParams<{
@@ -352,8 +383,11 @@ export type GetClientVisitsQueryParams = QueryParams<{
  */
 async function getClientVisits(
   args: RequestArgsGet<GetClientVisitsQueryParams>,
-): Promise<ClientVisits> {
-  return await MINDBODY.get('/client/clientvisits', args);
+): Promise<PaginatedResponse<ClientVisits>> {
+  return await MINDBODY.getPaginated('/client/clientvisits', {
+    ...args,
+    objectIndexKey: 'Visits',
+  });
 }
 
 export type GetClientSchedulesQueryParams = QueryParams<{
@@ -395,8 +429,14 @@ export type CrossRegionalClientAssociationsQueryParams = QueryParams<{
  */
 async function getCrossRegionalClientAssociations(
   args: RequestArgsGet<CrossRegionalClientAssociationsQueryParams>,
-): Promise<CrossRegionalClientAssociations> {
-  return await MINDBODY.get('/client/crossregionalclientassociations', args);
+): Promise<PaginatedResponse<CrossRegionalClientAssociations>> {
+  return await MINDBODY.getPaginated(
+    '/client/crossregionalclientassociations',
+    {
+      ...args,
+      objectIndexKey: 'CrossRegionalClientAssociations',
+    },
+  );
 }
 
 /**
@@ -404,8 +444,11 @@ async function getCrossRegionalClientAssociations(
  */
 async function getCustomClientFields(
   args: RequestArgsGetOptionalParams<never>,
-): Promise<CustomClientFields> {
-  return await MINDBODY.get('/client/customclientfields', args);
+): Promise<PaginatedResponse<CustomClientFields>> {
+  return await MINDBODY.getPaginated('/client/customclientfields', {
+    ...args,
+    objectIndexKey: 'CustomClientFields',
+  });
 }
 
 /**
@@ -426,8 +469,11 @@ export type ContactLogTypesQueryParams = QueryParams<{
  */
 async function getContactLogTypes(
   args: RequestArgsGetOptionalParams<ContactLogTypesQueryParams>,
-): Promise<ContactLogs> {
-  return await MINDBODY.get('/client/contactlogtypes', args);
+): Promise<PaginatedResponse<ContactLogs>> {
+  return await MINDBODY.getPaginated('/client/contactlogtypes', {
+    ...args,
+    objectIndexKey: 'ContactLogTypes',
+  });
 }
 
 // ------------------------

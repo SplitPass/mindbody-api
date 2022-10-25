@@ -1,7 +1,9 @@
 import type { QueryParams } from '$http/types';
 import type { Kv } from '$http/types/Kv';
 
-export type GetRequestConfig = { autoPaginate?: boolean };
+export type GetRequestConfig = {
+  autoPaginate: boolean;
+};
 
 export type RequestArgsGet<TParam extends Kv> = {
   siteID: string;

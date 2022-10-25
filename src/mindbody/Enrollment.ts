@@ -1,4 +1,5 @@
 import type {
+  PaginatedResponse,
   QueryParams,
   RequestArgsGetOptionalParams,
   RequestArgsPost,
@@ -43,8 +44,11 @@ export type GetEnrollmentsQueryParams = QueryParams<{
  */
 async function getEnrollments(
   args: RequestArgsGetOptionalParams<GetEnrollmentsQueryParams>,
-): Promise<Enrollments> {
-  return await MINDBODY.get('/enrollment/enrollments', args);
+): Promise<PaginatedResponse<Enrollments>> {
+  return await MINDBODY.getPaginated('/enrollment/enrollments', {
+    ...args,
+    objectIndexKey: 'Enrollments',
+  });
 }
 
 // ========================
