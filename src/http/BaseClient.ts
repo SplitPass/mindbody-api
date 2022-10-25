@@ -1,5 +1,6 @@
 import type { AxiosInstance } from 'axios';
 import type { ErrorResponse, Headers, TokenResponse } from '$http/types';
+import type { WebhookErrorResponse } from '$webhooks/types/WebhookErrorResponse';
 
 import axios, { AxiosError } from 'axios';
 import Config from '$Config';
@@ -32,7 +33,10 @@ export class BaseClient {
             );
           }
 
-          const error = err.response.data as ErrorResponse;
+          const error = err.response.data as
+            | ErrorResponse
+            | WebhookErrorResponse;
+
           throw new MindbodyError(error);
         }
 
