@@ -767,7 +767,7 @@ export type UpdateClientVisitPayload = {
   VisitId: string;
   MakeUp: boolean;
   SignedIn: boolean;
-  Exectute: 'Cancel' | 'LateCancel' | 'Unlatecancel';
+  Execute?: 'Cancel' | 'LateCancel' | 'Unlatecancel';
   Test?: boolean;
   SendEmail?: boolean;
 };
