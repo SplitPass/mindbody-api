@@ -33,6 +33,7 @@ export async function autoPager<T extends Returnable>(
         args.client.get(args.endpoint, {
           headers: args.headers,
           params: {
+            ...args.params,
             Offset: offset,
             Limit: limit,
           },
@@ -45,6 +46,7 @@ export async function autoPager<T extends Returnable>(
           args.client.get(args.endpoint, {
             headers: args.headers,
             params: {
+              ...args.params,
               Offset: requestCount === 1 ? limit : offset + limit,
               Limit: limit,
             },
