@@ -57,6 +57,7 @@ export class MindbodyAPIClient extends BaseClient {
         headers: headers,
         firstPage: res.data,
         objectIndexKey: args.objectIndexKey,
+        params: args.params
       });
     }
 
