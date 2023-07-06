@@ -303,7 +303,7 @@ export type AddPromoCodePayload = MarkRequired<
  */
 async function addPromoCode(
   args: RequestArgsPost<AddPromoCodePayload>,
-): Promise<ProspectStages> {
+): Promise<PromoCode> {
   return await MINDBODY.post('/site/addpromocode', args);
 }
 
