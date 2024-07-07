@@ -21,7 +21,6 @@ export type EventType =
   | 'classRosterBookingStatus.updated'
   | 'classWaitlistRequest.created'
   | 'classWaitlistRequest.cancelled'
-  | 'classRosterBookingStatus.updated'
   | 'client.created'
   | 'client.updated'
   | 'client.deactivated'
