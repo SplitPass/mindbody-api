@@ -12,6 +12,7 @@ type Args = {
   endpoint: string;
   firstPage: PaginatedResponse<Returnable>;
   objectIndexKey: string;
+  params?: Record<string, unknown>;
 };
 
 export async function autoPager<T extends Returnable>(

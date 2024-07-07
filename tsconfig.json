@@ -6,7 +6,7 @@
     "alwaysStrict": true,
     "baseUrl": "./src",
     "esModuleInterop": true,
-    "importsNotUsedAsValues": "error",
+    "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "lib": ["ES2019"],
     "module": "ESNext",
